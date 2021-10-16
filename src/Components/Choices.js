@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Choices from './Choices'
+
 // import USWDS from '../node_modules/uswds/src/js/components'
 
 export default class Categories extends Component{
