@@ -22,7 +22,7 @@ export default class Categories extends Component{
 
   	handleChange = (e) => {
   		this.setState({ rating: e.target.value })
-  		console.log(this.state.rating)
+  		
   	}
 
 	handleClickEducation = (e) => {
