@@ -2,11 +2,13 @@ import React, {Component, useState} from 'react'
 import './App.css'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Categories from './Components/Categories'
+import HowItWorks from './Components/HowItWorks'
 
 export default function App() {
 
   return (
     <>
+    <HowItWorks/>
     <Categories/>
      {/*<MapContainer center={[39.2904, -76.6122]} zoom={13} scrollWheelZoom={true}>
   <TileLayer
