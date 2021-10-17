@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {modal} from 'react-bootstrap'
 
 // import USWDS from '../node_modules/uswds/src/js/components'
 

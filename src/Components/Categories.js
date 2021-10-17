@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Choices from './Choices'
-import {Button, Popup, Form, Dropdown } from 'semantic-ui-react'
+import {Button, Popup, Form, Dropdown, Radio } from 'semantic-ui-react'
 
 // import USWDS from '../node_modules/uswds/src/js/components'
 
@@ -17,35 +17,43 @@ export default class Categories extends Component{
 		}
 	}
 
+	handleClick = (e) => {
+		const copyState = [...this.state.education]
+		copyState.push(e.target.value)
+		this.setState({
+			[e.target.id]: copyState
+		})
+		console.log(this.state.education)
+	}
+
 	render() {
-		console.log(this.state)
+
 		return (
 			<>
-				<Popup trigger={<Button>Education</Button>} on='click' flowing hoverable>
+				<Popup trigger={<Radio label='Education'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox label='Primary School'/>
-    					<Form.Checkbox label='Junior High School'/>
-    					<Form.Checkbox label='High School'/>
-    					<Form.Checkbox label='College/University'/>
-    					<Form.Checkbox label='GED Classes'/>
-    					<Form.Checkbox label='Night Classes'/>
-    					<Form.Checkbox label='Junior High School'/>
+    					<Form.Checkbox id='education' value='Primary School' label='Primary School'/>
+    					<Form.Checkbox id='education' value='Junior High School' label='Junior High School'/>
+    					{/*<Form.Checkbox id='education' value='High School' label='High School' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox id='education' value='College/University' label='College/University' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox id='education' value='GED Classes' label='GED Classes' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox id='education' value='Night Classes' label='Night Classes' onClick={(e) => this.handleClick(e)}/>*/}
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Button>Employment</Button>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio label='Employment'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
+    					<Form.Checkbox name='employment' label=''/>
+    					<Form.Checkbox name='employment' label=''/>
+    					<Form.Checkbox name='employment' label=''/>
+    					<Form.Checkbox name='employment' label=''/>
+    					<Form.Checkbox name='employment' label=''/>
+    					<Form.Checkbox name='employment' label=''/>
+    					<Form.Checkbox name='employment' label=''/>
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Button>Community</Button>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio label='Community'/>} on='click' flowing hoverable>
     				<Form>
     					<Form.Field>
     						<label>Religion</label>	
@@ -68,31 +76,27 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Button>Transportation</Button>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio label='Transportation'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox label='Public Transportation'/>
-    					<Form.Checkbox label='Walkability'/>
-    					<Form.Checkbox label='Carpooling Programs'/>
+    					<Form.Checkbox name='transportation' label='Public Transportation'/>
+    					<Form.Checkbox name='transportation' label='Walkability'/>
+    					<Form.Checkbox name='transportation' label='Carpooling Programs'/>
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Button>Housing</Button>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio label='Housing'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox label='Temporary Housing'/>
-    					<Form.Checkbox label='Low Income Housing'/>
-    					<Form.Checkbox label='Rent Stablized Housing'/>
+    					<Form.Checkbox name='housing' label='Temporary Housing'/>
+    					<Form.Checkbox name='housing' label='Low Income Housing'/>
+    					<Form.Checkbox name='housing' label='Rent Stablized Housing'/>
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Button>Safety and Resources</Button>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio label='Safety and Resources'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
-    					<Form.Checkbox label=''/>
+    					<Form.Checkbox name='safetyAndResources' label=''/>
+    					<Form.Checkbox name='safetyAndResources' label=''/>
+    					<Form.Checkbox name='safetyAndResources' label=''/>
     					<Button>Close</Button>
     				</Form>
   				</Popup>
