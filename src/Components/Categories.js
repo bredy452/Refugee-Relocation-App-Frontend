@@ -1,8 +1,10 @@
-import React, {Component} from 'react'
+import React, {Component, useCallback, useState} from 'react'
 import Choices from './Choices'
-import {Button, Popup, Form, Dropdown, Radio } from 'semantic-ui-react'
+import {Button, Popup, Form, Dropdown, Radio, Rating } from 'semantic-ui-react'
+// import SliderView from 'semantic-ui-react-slider'
 
 // import USWDS from '../node_modules/uswds/src/js/components'
+
 
 export default class Categories extends Component{
 	constructor(props) {
@@ -13,11 +15,17 @@ export default class Categories extends Component{
 			community: [],
 			transportation: [],
 			housing: [],
-			safetyAndResources: []
+			safetyAndResources: [],
+			rating: undefined
 		}
 	}
 
-	handleClick = (e) => {
+  	handleChange = (e) => {
+  		this.setState({ rating: e.target.value })
+  		console.log(this.state.rating)
+  	}
+
+	handleClickEducation = (e) => {
 		const copyState = [...this.state.education]
 		copyState.push(e.target.id)
 		this.setState({
@@ -26,23 +34,68 @@ export default class Categories extends Component{
 		console.log(this.state)
 	}
 
-	render() {
+	handleClickEmployment = (e) => {
+		const copyState = [...this.state.employment]
+		copyState.push(e.target.id)
+		this.setState({
+			[e.target.value]: copyState
+		})
+		console.log(this.state)
+	}
 
+	handleClickCommunity = (e) => {
+		const copyState = [...this.state.community]
+		copyState.push(e.target.id)
+		this.setState({
+			[e.target.value]: copyState
+		})
+		console.log(this.state)
+	}
+
+	handleClickTransportation = (e) => {
+		const copyState = [...this.state.transportation]
+		copyState.push(e.target.id)
+		this.setState({
+			[e.target.value]: copyState
+		})
+		console.log(this.state)
+	}
+
+	handleClickHousing = (e) => {
+		const copyState = [...this.state.housing]
+		copyState.push(e.target.id)
+		this.setState({
+			[e.target.value]: copyState
+		})
+		console.log(this.state)
+	}
+
+	handleClickSafety = (e) => {
+		const copyState = [...this.state.safetyAndResources]
+		copyState.push(e.target.id)
+		this.setState({
+			[e.target.value]: copyState
+		})
+		console.log(this.state)
+	}
+
+	render() {
+		const {rating} = this.state
 		return (
 			<>
 				<Popup trigger={<Radio label='Education'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox value='education' id='Primary School' label='Primary School' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox value='education' id='Primary School' label='Primary School' onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value='education' id='Junior High School' label='Junior High School' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox value='education' id='Junior High School' label='Junior High School' onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value='education' id='High School' label='High School' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox value='education' id='High School' label='High School' onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value='education' id='College/University' label='College/University' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox value='education' id='College/University' label='College/University' onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value='education' id='GED Classes' label='GED Classes' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox value='education' id='GED Classes' label='GED Classes' onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value='education' id='Night Classes' label='Night Classes' onClick={(e) => this.handleClick(e)}/>
+    					<Form.Checkbox value='education' id='Night Classes' label='Night Classes' onClick={(e) => this.handleClickEducation(e)}/>
 
     					<Button>Close</Button>
     				</Form>
@@ -84,17 +137,28 @@ export default class Categories extends Component{
   				</Popup>
   				<Popup trigger={<Radio label='Transportation'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox value='transportation' id='Public Transportation' label='Public Transportation'/>
-    					<Form.Checkbox value='transportation' id='Walkability' label='Walkability'/>
-    					<Form.Checkbox value='transportation' id='Carpooling Programs' label='Carpooling Programs'/>
+    					<Form.Checkbox value='transportation' id='Public Transportation' label='Public Transportation' onClick={(e) => this.handleClickTransportation(e)}/>
+    					<Form.Checkbox value='transportation' id='Walkability' label='Walkability' onClick={(e) => this.handleClickTransportation(e)}/>
+    					<Form.Checkbox value='transportation' id='Carpooling Programs' label='Carpooling Programs' onClick={(e) => this.handleClickTransportation(e)}/>
     					<Button>Close</Button>
     				</Form>
   				</Popup>
   				<Popup trigger={<Radio label='Housing'/>} on='click' flowing hoverable>
     				<Form>
-    					<Form.Checkbox value='housing' id='Temporary Housing' label='Temporary Housing'/>
-    					<Form.Checkbox value='housing' id='Low Income Housing' label='Low Income Housing'/>
-    					<Form.Checkbox value='housing' id='Rent Stabalized Housing' label='Rent Stabalized Housing'/>
+    					<Form.Checkbox value='housing' id='Temporary Housing' label='Temporary Housing' onClick={(e) => this.handleClickHousing(e)}/>
+    					<Form.Checkbox value='housing' id='Low Income Housing' label='Low Income Housing' onClick={(e) => this.handleClickHousing(e)}/>
+    					<Form.Checkbox value='housing' id='Rent Stabalized Housing' label='Rent Stabalized Housing' onClick={(e) => this.handleClickHousing(e)}/>
+    					<Form.Checkbox value='housing' id='Median Monthly Housing Cost' label='Median Monthly Housing Cost' onClick={(e) => this.handleClickHousing(e)}/>
+    					<input
+          					type='range'
+          					min={0}
+          					max={4000}
+          					value={rating}
+          					onChange={this.handleChange}
+        				/>
+        				<br />
+        				<div>${rating}</div>
+
     					<Button>Close</Button>
     				</Form>
   				</Popup>
@@ -105,7 +169,7 @@ export default class Categories extends Component{
     					<Form.Checkbox value='safetyAndResources' id='' label=''/>
     					<Button>Close</Button>
     				</Form>
-  				</Popup>
+  				</Popup><br></br>
 				{/*<input type='radio' id='education' name='education' value='education'/>
 				<label for='education'>Education</label><br></br>
 				<Choices/>
@@ -124,7 +188,7 @@ export default class Categories extends Component{
 
 				<input type='radio' id='safetyAndResources' name='safetyAndResources' value='safetyAndResources'/>
 				<label for='safetyAndResources'>Safety and Resources</label>*/}
-				
+      
 			</>
 
 			)
