@@ -1,6 +1,6 @@
-import React, {Component, useCallback, useState} from 'react'
+import React, {Component} from 'react'
 import Choices from './Choices'
-import {Button, Popup, Form, Dropdown, Radio, Rating } from 'semantic-ui-react'
+import {Button, Popup, Form, Dropdown, Radio} from 'semantic-ui-react'
 // import SliderView from 'semantic-ui-react-slider'
 
 // import USWDS from '../node_modules/uswds/src/js/components'
@@ -31,7 +31,7 @@ export default class Categories extends Component{
 		this.setState({
 			[e.target.value]: copyState
 		})
-		console.log(this.state)
+		console.log(e)
 	}
 
 	handleClickEmployment = (e) => {
@@ -100,6 +100,7 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup>
+  				<Choices selectedChoices={this.state}/>
   				<Popup trigger={<Radio label='Employment'/>} on='click' flowing hoverable>
     				<Form>
     					<Form.Checkbox value='employment' id='' label=''/>
@@ -170,24 +171,8 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup><br></br>
-				{/*<input type='radio' id='education' name='education' value='education'/>
-				<label for='education'>Education</label><br></br>
-				<Choices/>
 
-				<input type='radio' id='employment' name='employment' value='employment'/>
-				<label for='employment'>Employment</label><br></br>
-
-				<input type='radio' id='community' name='community' value='community'/>
-				<label for='community'>Community</label><br></br>
-
-				<input type='radio' id='transportation' name='transportation' value='transportation'/>
-				<label for='transportation'>Transportation</label><br></br>
-
-				<input type='radio' id='housing' name='housing' value='housing'/>
-				<label for='housing'>Housing</label><br></br>
-
-				<input type='radio' id='safetyAndResources' name='safetyAndResources' value='safetyAndResources'/>
-				<label for='safetyAndResources'>Safety and Resources</label>*/}
+			
       
 			</>
 

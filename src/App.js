@@ -1,6 +1,6 @@
 import React, {Component, useState} from 'react'
 import './App.css'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Categories from './Components/Categories'
 import HowItWorks from './Components/HowItWorks'
 
