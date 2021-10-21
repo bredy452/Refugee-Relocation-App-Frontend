@@ -16,8 +16,51 @@ export default class Categories extends Component{
 			transportation: [],
 			housing: [],
 			safetyAndResources: [],
-			rating: undefined
+			rating: undefined,
+			educationToggle: false,
+			employmentToggle: false,
+			communityToggle: false, 
+			transportationToggle: false,
+			housingToggle: false,
+			safetyAndResourcesToggle: false
 		}
+	}
+
+	toggleChangeEducation = (e) => {
+		this.setState({
+			educationToggle: !this.state.educationToggle
+		})
+
+		if (this.state.educationToggle !== false) {
+			this.setState({
+				education: []
+			})
+		}
+		// console.log(this.state.educationToggle)
+	}
+
+	componentDidUpdate() {
+		console.log(this.state.education)
+	}
+
+	toggleChangeHousing = (e) => {
+		e = true
+	}
+
+	toggleChangeEmployment = (e) => {
+		e = true
+	}
+
+	toggleChangeCommunity = (e) => {
+		e = true
+	}
+
+	toggleChangeTransportation = (e) => {
+		e = true
+	}
+
+	toggleChangeSafety = (e) => {
+		e = true
 	}
 
   	handleChange = (e) => {
@@ -31,7 +74,7 @@ export default class Categories extends Component{
 		this.setState({
 			[e.target.value]: copyState
 		})
-		console.log(e)
+		// console.log(this.state.education)
 	}
 
 	handleClickEmployment = (e) => {
@@ -83,7 +126,7 @@ export default class Categories extends Component{
 		const {rating} = this.state
 		return (
 			<>
-				<Popup trigger={<Radio label='Education'/>} on='click' flowing hoverable>
+				<Popup trigger={<Radio toggle label='Education' onChange={(e) => this.toggleChangeEducation(e)}/>} on='click' flowing >
     				<Form>
     					<Form.Checkbox value='education' id='Primary School' label='Primary School' onClick={(e) => this.handleClickEducation(e)}/>
 
@@ -100,8 +143,8 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Choices selectedChoices={this.state}/>
-  				<Popup trigger={<Radio label='Employment'/>} on='click' flowing hoverable>
+  				<Choices selectedChoices={this.state} toggleEducation={this.toggleChangeEducation} refresh={this.componentDidUpdate}/>
+  				<Popup trigger={<Radio toggle label='Employment'/>} on='click' flowing hoverable>
     				<Form>
     					<Form.Checkbox value='employment' id='' label=''/>
     					<Form.Checkbox value='employment' id='' label=''/>
@@ -113,7 +156,7 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Radio label='Community'/>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio toggle label='Community'/>} on='click' flowing hoverable>
     				<Form>
     					<Form.Field>
     						<label>Religion</label>	
@@ -136,7 +179,7 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Radio label='Transportation'/>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio toggle label='Transportation'/>} on='click' flowing hoverable>
     				<Form>
     					<Form.Checkbox value='transportation' id='Public Transportation' label='Public Transportation' onClick={(e) => this.handleClickTransportation(e)}/>
     					<Form.Checkbox value='transportation' id='Walkability' label='Walkability' onClick={(e) => this.handleClickTransportation(e)}/>
@@ -144,7 +187,7 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Radio label='Housing'/>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio toggle label='Housing'/>} on='click' flowing hoverable>
     				<Form>
     					<Form.Checkbox value='housing' id='Temporary Housing' label='Temporary Housing' onClick={(e) => this.handleClickHousing(e)}/>
     					<Form.Checkbox value='housing' id='Low Income Housing' label='Low Income Housing' onClick={(e) => this.handleClickHousing(e)}/>
@@ -163,7 +206,7 @@ export default class Categories extends Component{
     					<Button>Close</Button>
     				</Form>
   				</Popup>
-  				<Popup trigger={<Radio label='Safety and Resources'/>} on='click' flowing hoverable>
+  				<Popup trigger={<Radio toggle label='Safety and Resources'/>} on='click' flowing hoverable>
     				<Form>
     					<Form.Checkbox value='safetyAndResources' id='' label=''/>
     					<Form.Checkbox value='safetyAndResources' id='' label=''/>
