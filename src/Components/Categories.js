@@ -5,6 +5,89 @@ import {Button, Popup, Form, Dropdown, Radio} from 'semantic-ui-react'
 
 // import USWDS from '../node_modules/uswds/src/js/components'
 
+const languages = [
+	{'name': 'Mandarin'}, 
+	// {name: 'Spanish'}, 
+	// {name: 'English'}, 
+	// {name: 'Hindi'},
+	// {name: 'Arabic'},
+	// {name: 'Portuguese'}, 
+	// {name: 'Bengali'}, 
+	// {name: 'Russian'}, 
+	// {name: 'Japanese'}, 
+	// {name: 'Punjabi'},
+	// {name: 'German'}, 
+	// {name: 'Malay'},
+	// {name: 'Telugu'}, 
+	// {name: 'Vietnamese'}, 
+	// {name: 'Korean'}, 
+	// {name: 'French'}, 
+	// {name: 'Marathi'}, 
+	// {name: 'Tamil'}, 
+	// {name: 'Urdu'}, 
+	// {name: 'Turkish'}, 
+	// {name: 'Italian'},
+	// {name: 'Cantonese'}, 
+	// {name: 'Thai'}, 
+	// {name: 'Gujarati'},  
+	// {name: 'Persian'}, 
+	// {name: 'Polish'}, 
+	// {name: 'Pashto'}, 
+	// {name: 'Kannada'}, 
+	// {name: 'Hunnanese'}, 
+	// {name: 'Malayalam'}, 
+	// {name: 'Sundanese'}, 
+	// {name: 'Hausa'}, 
+	// {name: 'Burmese'}, 
+	// {name: 'Hakka'}, 
+	// {name: 'Ukrainian'}, 
+	// {name: 'Bhojpuri'}, 
+	// {name: 'Tagalog'}, 
+	// {name: 'Yoruba'},
+	// {name: 'Amharic'}, 
+	// {name: 'Fula'}, 
+	// {name: 'Romanian'}, 
+	// {name: 'Oromo'}, 
+	// {name: 'Igbo'}, 
+	// {name: 'Azerbaijani'}, 
+	// {name: 'Awadhi'},  
+	// {name: 'Dutch'}, 
+	// {name: 'Kurdish'}, 
+	// {name: 'Malagasy'}, 
+	// {name: 'Saraiki'}, 
+	// {name: 'Nepali'}, 
+	// {name: 'Sinhalese'}, 
+	// {name: 'Chittagonian'}, 
+	// {name: 'Zhuang'}, 
+	// {name: 'Khmer'}, 
+	// {name: 'Turkmen'}, 
+	// {name: 'Assamese'}, 
+	// {name: 'Madurese'}, 
+	// {name: 'Somali'}, 
+	// {name: 'Marwari'}, 
+	// {name: 'Magahi'}, 
+	// {name: 'Haryanvi'}, 
+	// {name: 'Hungarian'}, 
+	// {name: 'Chhattisgarhi'}, 
+	// {name: 'Greek'},
+	// {name: 'Chewa'},
+	// {name: 'Deccan'},
+	// {name: 'Akan'},
+	// {name: 'Kazakh'},
+	// {name: 'Sylheti'}, 
+	// {name: 'Zulu'}, 
+	// {name: 'Czech'},
+	// {name: 'Kinyarwanda'}, 
+	// {name: 'Dhundhari'},  
+	// {name: 'Kirundi'}, 
+	// {name: 'Swedish'}, 
+	// {name: 'Hmong'},,
+	// {name: 'Shona'}, 
+	// {name: 'Uyghur'}, 
+	// {name: 'Hiligaynon'}, 
+	// {name: 'Mossi'}, 
+	// {name: 'Xhosa'} 
+]
 
 export default class Categories extends Component{
 	constructor(props) {
@@ -231,7 +314,8 @@ export default class Categories extends Component{
     						<label>Language</label>	
     							<Dropdown
     								label='langauge'
-    								placeholder="-Select-"/>
+    								placeholder="-Select-"
+    								options={languages}/>
     					</Form.Field>
     					<Form.Field>
     						<label>Country of Origin</label>	
