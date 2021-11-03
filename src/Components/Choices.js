@@ -59,6 +59,15 @@ export default function Choices(props) {
   						</Grid.Column>
   					)
 				})}
+				{props.selectedChoices.food.map((choice, i, f) => {
+					return (
+						<Grid.Column key={f}>
+							<List key={choice}>
+    							<List.Item>{choice}</List.Item>
+  							</List>
+  						</Grid.Column>
+  					)
+				})}
 			</>
 
 		)
