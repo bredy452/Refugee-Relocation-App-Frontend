@@ -3,6 +3,9 @@ import './App.css'
 // import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Categories from './Components/Categories'
 import HowItWorks from './Components/HowItWorks'
+import { BrowserRouter, Route } from 'react-router-dom';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
+import Header from './components/header/Header';
 
 export default function App() {
 
@@ -26,7 +29,13 @@ export default function App() {
     </Popup>
   </Marker>
 </MapContainer>*/}
+
+    <BrowserRouter >
+      <Route exact path="" component={Header} />
+      <Route exact path="/home"/>
+    </BrowserRouter>
     </>
+
   );
 }
 
