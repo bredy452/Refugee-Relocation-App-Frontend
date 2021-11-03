@@ -19,7 +19,7 @@
     "semantic-ui-react": "^2.0.4",
     "semantic-ui-react-slider": "^1.1.0",
     "uswds": "^2.12.1",
-    "sass": "^1.43.2",
+    "sass": "^1.43.2", 
     "web-vitals": "^1.1.2"
   },
   "scripts": {
