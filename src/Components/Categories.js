@@ -6,7 +6,7 @@ import {Button, Popup, Form, Dropdown, Radio} from 'semantic-ui-react'
 // import USWDS from '../node_modules/uswds/src/js/components'
 
 const languages = [
-	{'name': 'Mandarin'}, 
+	{name: 'Mandarin'}, 
 	// {name: 'Spanish'}, 
 	// {name: 'English'}, 
 	// {name: 'Hindi'},
