@@ -5,99 +5,620 @@ import {Button, Popup, Form, Dropdown, Radio} from 'semantic-ui-react'
 
 // import USWDS from '../node_modules/uswds/src/js/components'
 
-const languages = [
-	{name: 'Mandarin'}, 
-	// {name: 'Spanish'}, 
-	// {name: 'English'}, 
-	// {name: 'Hindi'},
-	// {name: 'Arabic'},
-	// {name: 'Portuguese'}, 
-	// {name: 'Bengali'}, 
-	// {name: 'Russian'}, 
-	// {name: 'Japanese'}, 
-	// {name: 'Punjabi'},
-	// {name: 'German'}, 
-	// {name: 'Malay'},
-	// {name: 'Telugu'}, 
-	// {name: 'Vietnamese'}, 
-	// {name: 'Korean'}, 
-	// {name: 'French'}, 
-	// {name: 'Marathi'}, 
-	// {name: 'Tamil'}, 
-	// {name: 'Urdu'}, 
-	// {name: 'Turkish'}, 
-	// {name: 'Italian'},
-	// {name: 'Cantonese'}, 
-	// {name: 'Thai'}, 
-	// {name: 'Gujarati'},  
-	// {name: 'Persian'}, 
-	// {name: 'Polish'}, 
-	// {name: 'Pashto'}, 
-	// {name: 'Kannada'}, 
-	// {name: 'Hunnanese'}, 
-	// {name: 'Malayalam'}, 
-	// {name: 'Sundanese'}, 
-	// {name: 'Hausa'}, 
-	// {name: 'Burmese'}, 
-	// {name: 'Hakka'}, 
-	// {name: 'Ukrainian'}, 
-	// {name: 'Bhojpuri'}, 
-	// {name: 'Tagalog'}, 
-	// {name: 'Yoruba'},
-	// {name: 'Amharic'}, 
-	// {name: 'Fula'}, 
-	// {name: 'Romanian'}, 
-	// {name: 'Oromo'}, 
-	// {name: 'Igbo'}, 
-	// {name: 'Azerbaijani'}, 
-	// {name: 'Awadhi'},  
-	// {name: 'Dutch'}, 
-	// {name: 'Kurdish'}, 
-	// {name: 'Malagasy'}, 
-	// {name: 'Saraiki'}, 
-	// {name: 'Nepali'}, 
-	// {name: 'Sinhalese'}, 
-	// {name: 'Chittagonian'}, 
-	// {name: 'Zhuang'}, 
-	// {name: 'Khmer'}, 
-	// {name: 'Turkmen'}, 
-	// {name: 'Assamese'}, 
-	// {name: 'Madurese'}, 
-	// {name: 'Somali'}, 
-	// {name: 'Marwari'}, 
-	// {name: 'Magahi'}, 
-	// {name: 'Haryanvi'}, 
-	// {name: 'Hungarian'}, 
-	// {name: 'Chhattisgarhi'}, 
-	// {name: 'Greek'},
-	// {name: 'Chewa'},
-	// {name: 'Deccan'},
-	// {name: 'Akan'},
-	// {name: 'Kazakh'},
-	// {name: 'Sylheti'}, 
-	// {name: 'Zulu'}, 
-	// {name: 'Czech'},
-	// {name: 'Kinyarwanda'}, 
-	// {name: 'Dhundhari'},  
-	// {name: 'Kirundi'}, 
-	// {name: 'Swedish'}, 
-	// {name: 'Hmong'},,
-	// {name: 'Shona'}, 
-	// {name: 'Uyghur'}, 
-	// {name: 'Hiligaynon'}, 
-	// {name: 'Mossi'}, 
-	// {name: 'Xhosa'} 
+let languages = [
+	{
+		text: 'Mandarin',
+		id: 'mandarin'
+	},
+	{
+		text: 'Spanish',
+		id: 'spanish'
+	}, 
+	{
+		text: 'English',
+		id: 'english'
+	}, 
+	{
+		text: 'Hindi',
+		id: 'hindi'
+	},
+	{
+		text: 'Arabic',
+		id: 'arabic'
+	},
+	{
+		text: 'Portuguese',
+		id: 'portuguese'
+	}, 
+	{
+		text: 'Bengali',
+		id: 'bengali'
+	}, 
+	{
+		text: 'Russian',
+		id: 'russian'
+	}, 
+	{
+		text: 'Japanese',
+		id: 'japanese'
+	}, 
+	{
+		text: 'Punjabi',
+		id: 'punjabi'
+	},
+	{
+		text: 'German',
+		id: 'German'
+	}, 
+	{
+		text: 'Malay',
+		id: 'malay'
+	},
+	{
+		text: 'Telugu',
+		id: 'telugu'
+	}, 
+	{
+		text: 'Vietnamese',
+		id: 'vietnamese'
+	}, 
+	{
+		text: 'Korean',
+		id: 'korean'
+	}, 
+	{
+		text: 'French',
+		id: 'french'
+	}, 
+	{
+		text: 'Marathi',
+		id: 'marathi'
+	}, 
+	{
+		text: 'Tamil',
+		id: 'tamil'
+	}, 
+	{
+		text: 'Urdu',
+		id: 'urdu'
+	}, 
+	{
+		text: 'Turkish',
+		id: 'turkish' 
+	}, 
+	{
+		text: 'Italian',
+		id: 'italian'
+	},
+	{
+		text: 'Cantonese',
+		id: 'cantonese'
+	}, 
+	{
+		text: 'Thai',
+		id: 'thai'
+	}, 
+	{
+		text: 'Gujarati',
+		id: 'gujarati'
+	},  
+	{
+		text: 'Persian',
+		id: 'persian'
+	}, 
+	{
+		text: 'Polish',
+		id: 'polish'
+	}, 
+	{
+		text: 'Pashto',
+		id: 'pashto'
+	}, 
+	{
+		text: 'Kannada',
+		id: 'kannada'
+	}, 
+	{
+		text: 'Hunnanese',
+		id: 'hunnanese'
+	}, 
+	{
+		text: 'Malayalam',
+		id: 'malayalam'
+	}, 
+	{
+		text: 'Sundanese',
+		id: 'sundanese'
+	}, 
+	{
+		text: 'Hausa',
+		id: 'hausa'
+	}, 
+	{
+		text: 'Burmese',
+		id: 'burmese'
+	}, 
+	{
+		text: 'Hakka',
+		id: 'hakka'
+	}, 
+	{
+		text: 'Ukrainian',
+		id: 'ukrainian'
+	}, 
+	{
+		text: 'Bhojpuri',
+		id: 'bhojpuri'
+	}, 
+	{
+		text: 'Tagalog',
+		id: 'tagalog'
+	}, 
+	{
+		text: 'Yoruba',
+		id: 'yoruba'
+	},
+	{
+		text: 'Amharic',
+		id: 'amharic'
+	}, 
+	{
+		text: 'Fula',
+		id: 'fula'
+	}, 
+	{
+		text: 'Romanian',
+		id: 'romanian'
+	}, 
+	{
+		text: 'Oromo',
+		id: 'oromo'
+	}, 
+	{
+		text: 'Igbo',
+		id: 'igbo'
+	}, 
+	{
+		text: 'Azerbaijani',
+		id: 'azerbaijani'
+	}, 
+	{
+		text: 'Awadhi',
+		id: 'awadhi'
+	},  
+	{
+		text: 'Dutch',
+		id: 'dutch'
+	},
+	{
+		text: 'Kurdish',
+		id: 'kurdish'
+	}, 
+	{
+		text: 'Malagasy',
+		id: 'malagasy'
+	}, 
+	{
+		text: 'Saraiki',
+		id: 'saraiki'
+	}, 
+	{
+		text: 'Nepali',
+		id: 'nepali'
+	},  
+	{
+		text: 'Sinhalese',
+		id: 'sinhalese'
+	}, 
+	{
+		text: 'Chittagonian',
+		id: 'chittagonian'
+	}, 
+	{
+		text: 'Zhuang',
+		id: 'zhuang' 
+	}, 
+	{
+		text: 'Khmer',
+		id: 'khmer'  
+	}, 
+	{
+		text: 'Turkmen',
+		id: 'turkmen' 
+	}, 
+	{
+		text: 'Assamese',
+		id: 'assamese' 
+	}, 
+	{
+		text: 'Madurese',
+		id: 'Madurese'  
+	}, 
+	{
+		text: 'Somali',
+		id: 'somali'  
+	}, 
+	{
+		text: 'Marwari',
+		id: 'marwari' 
+	}, 
+	{
+		text: 'Magahi',
+		id: 'magahi'  
+	}, 
+	{
+		text: 'Haryanvi',
+		id: 'haryanvi'  
+	}, 
+	{
+		text: 'Hungarian',
+		id: 'hungarian'  
+	}, 
+	{
+		text: 'Chhattisgarhi',
+		id: 'chhattisgarhi'  
+	}, 
+	{
+		text: 'Greek',
+		id: 'greek'  
+	},
+	{
+		text: 'Chewa',
+		id: 'chewa' 
+	},
+	{
+		text: 'Deccan',
+		id: 'deccan'  
+	},
+	{
+		text: 'Akan',
+		id: 'akan'  
+	},
+	{
+		text: 'Kazakh',
+		id: 'kazakh'  
+	},
+	{
+		text: 'Sylheti',
+		id: 'sylheti' 
+	}, 
+	{
+		text: 'Zulu',
+		id: 'zulu' 
+	}, 
+	{
+		text: 'Czech',
+		id: 'czech'  
+	},
+	{
+		text: 'Kinyarwanda',
+		id: 'kinyarwanda'  
+	}, 
+	{
+		text: 'Dhundhari',
+		id: 'dhundhari' 
+	},  
+	{
+		text: 'Kirundi',
+		id: 'kirundi'  
+	}, 
+	{
+		text: 'Swedish',
+		id: 'swedish'  
+	}, 
+	{
+		text: 'Hmong',
+		id: 'hmong'  
+	},
+	{
+		text: 'Shona',
+		id: 'shona'  
+	}, 
+	{
+		text: 'Uyghur',
+		id: 'uyghur'  
+	}, 
+	{
+		text: 'Hiligaynon',
+		id: 'hiligaynon'  
+	}, 
+	{
+		text: 'Mossi',
+		id: 'mossi'  
+	}, 
+	{
+		text: 'Xhosa',
+		id: 'xhosa'  
+	} 
 ]
 
-export default class Categories extends Component{
+const religions = [
+	{
+		text: 'Buddhism',
+		id: 'buddhism'
+	},
+	{
+		text: 'Christianity',
+		id: 'christianity'
+	},
+	{
+		text: 'Hinduism',
+		id: 'hinduism'
+	},
+	{
+		text: 'Islam',
+		id: 'islam'
+	},
+	{
+		text: 'Judaism',
+		id: 'judaism'
+	},
+	{
+		text: 'Nonreligious',
+		id: 'nonreligious'
+	}
+]
+
+const countryOfOrigin = [
+  { text: 'Afghanistan', id: 'afghanistan' },
+  { text: 'Aland Islands', id: 'aland_islands' },
+  { text: 'Albania', id: 'albania' },
+  { text: 'Algeria', id: 'algeria' },
+  { text: 'American Samoa', id: 'american_samoa' },
+  { text: 'Andorra', id: 'andorra' },
+  { text: 'Angola', id: 'angola' },
+  { text: 'Anguilla', id: 'anguilla' },
+  { text: 'Antigua', id: 'antigua' },
+  { text: 'Argentina', id: 'argentina' },
+  { text: 'Armenia', id: 'armenia' },
+  { text: 'Aruba', id: 'aruba' },
+  { text: 'Australia', id: 'australia' },
+  { text: 'Austria', id: 'austria' },
+  { text: 'Azerbaijan', id: 'azerbaijan' },
+  { text: 'Bahamas', id: 'bahamas' },
+  { text: 'Bahrain', id: 'bahrain' },
+  { text: 'Bangladesh', id: 'bangladesh' },
+  { text: 'Barbados', id: 'barbados' },
+  { text: 'Belarus', id: 'belarus' },
+  { text: 'Belgium', id: 'belgium' },
+  { text: 'Belize', id: 'belize' },
+  { text: 'Benin', id: 'benin' },
+  { text: 'Bermuda', id: 'bermuda' },
+  { text: 'Bhutan', id: 'bhutan' },
+  { text: 'Bolivia', id: 'bolivia' },
+  { text: 'Bosnia', id: 'bosnia' },
+  { text: 'Botswana', id: 'botswana' },
+  { text: 'Bouvet Island', id: 'bouvet_island' },
+  { text: 'Brazil', id: 'brazil' },
+  { text: 'British Virgin Islands', id: 'british_virgin_islands' },
+  { text: 'Brunei', id: 'brunei' },
+  { text: 'Bulgaria', id: 'bulgaria' },
+  { text: 'Burkina Faso', id: 'burkina_faso' },
+  { text: 'Burma', id: 'burma'},
+  { text: 'Burundi', id: 'burundi' },
+  { text: 'Caicos Islands', id: 'caicos_islands' },
+  { text: 'Cambodia', id: 'cambodia' },
+  { text: 'Cameroon', id: 'cameroon' },
+  { text: 'Canada', id: 'canada' },
+  { text: 'Cape Verde', id: 'cape_verde' },
+  { text: 'Cayman Islands', id: 'cayman_islands' },
+  { text: 'Central African Republic', id: 'central_african_republic' },
+  { text: 'Chad', id: 'chad' },
+  { text: 'Chile', id: 'chile' },
+  { text: 'China', id: 'china' },
+  { text: 'Christmas Island', id: 'christmas_island' },
+  { text: 'Cocos Islands', id: 'cocos_islands' },
+  { text: 'Colombia', id: 'colombia' },
+  { text: 'Comoros', id: 'comoros' },
+  { text: 'Congo', id: 'congo' },
+  { text: 'Congo Brazzaville', id: 'congo_brazzaville' },
+  { text: 'Cook Islands', id: 'cook_islands' },
+  { text: 'Costa Rica', id: 'costa_rica' },
+  { text: 'Cote Divoire', id: 'cote_divoire' },
+  { text: 'Croatia', id: 'croatia' },
+  { text: 'Cuba', id: 'cuba' },
+  { text: 'Cyprus', id: 'cyprus' },
+  { text: 'Czech Republic', id: 'czech_republic' },
+  { text: 'Denmark', id: 'denmark' },
+  { text: 'Djibouti', id: 'djibouti' },
+  { text: 'Dominica', id: 'dominica' },
+  { text: 'Dominican Republic', id: 'dominican_republic' },
+  { text: 'Ecuador', id: 'ecuador' },
+  { text: 'Egypt', id: 'egypt' },
+  { text: 'El Salvador', id: 'el_salvador' },
+  { text: 'England', id: 'england' },
+  { text: 'Equatorial Guinea', id: 'equatorial_guinea' },
+  { text: 'Eritrea', id: 'eritrea' },
+  { text: 'Estonia', id: 'estonia' },
+  { text: 'Ethiopia', id: 'ethiopia' },
+  { text: 'Europeanunion', id: 'europeanunion' },
+  { text: 'Falkland Islands', id: 'falkland_islands' },
+  { text: 'Faroe Islands', id: 'faroe_islands' },
+  { text: 'Fiji', id: 'fiji' },
+  { text: 'Finland', id: 'finland' },
+  { text: 'France', id: 'france' },
+  { text: 'French Guiana', id: 'french_guiana' },
+  { text: 'French Polynesia', id: 'french_polynesia' },
+  { text: 'French Territories', id: 'french_territories' },
+  { text: 'Gabon', id: 'gabon' },
+  { text: 'Gambia', id: 'gambia' },
+  { text: 'Georgia', id: 'georgia' },
+  { text: 'Germany', id: 'germany' },
+  { text: 'Ghana', id: 'ghana' },
+  { text: 'Gibraltar', id: 'gibraltar' },
+  { text: 'Greece', id: 'greece' },
+  { text: 'Greenland', id: 'greenland' },
+  { text: 'Grenada', id: 'grenada' },
+  { text: 'Guadeloupe', id: 'guadeloupe' },
+  { text: 'Guam', id: 'guam' },
+  { text: 'Guatemala', id: 'guatemala' },
+  { text: 'Guinea', id: 'guinea' },
+  { text: 'Guinea-Bissau', id: 'guinea_bissau' },
+  { text: 'Guyana', id: 'guyana' },
+  { text: 'Haiti', id: 'haiti' },
+  { text: 'Heard Island', id: 'heard_island' },
+  { text: 'Honduras', id: 'honduras' },
+  { text: 'Hong Kong', id: 'hong Kong' },
+  { text: 'Hungary', id: 'hungary' },
+  { text: 'Iceland', id: 'iceland' },
+  { text: 'India', id: 'india' },
+  { text: 'Indian Ocean Territory', id: 'indian_ocean_territoryo' },
+  { text: 'Indonesia', id: 'indonesia' },
+  { text: 'Iran', id: 'iran' },
+  { text: 'Iraq', id: 'iraq' },
+  { text: 'Ireland', id: 'ireland' },
+  { text: 'Israel', id: 'israel' },
+  { text: 'Italy', id: 'italy' },
+  { text: 'Jamaica', id: 'jamaica' },
+  { text: 'Jan Mayen', id: 'jan_mayen' },
+  { text: 'Japan', id: 'japan' },
+  { text: 'Jordan', id: 'jordan' },
+  { text: 'Kazakhstan', id: 'kazakhstan' },
+  { text: 'Kenya', id: 'kenya' },
+  { text: 'Kiribati', id: 'kiribati' },
+  { text: 'Kuwait', id: 'kuwait' },
+  { text: 'Kyrgyzstan', id: 'kyrgyzstan' },
+  { text: 'Laos', id: 'laos' },
+  { text: 'Latvia', id: 'latvia' },
+  { text: 'Lebanon', id: 'lebanon' },
+  { text: 'Lesotho', id: 'lesotho' },
+  { text: 'Liberia', id: 'liberia' },
+  { text: 'Libya', id: 'libya' },
+  { text: 'Liechtenstein', id: 'liechtenstein' },
+  { text: 'Lithuania', id: 'lithuania' },
+  { text: 'Luxembourg', id: 'luxembourg' },
+  { text: 'Macau', id: 'macau' },
+  { text: 'Macedonia', id: 'macedonia' },
+  { text: 'Madagascar', id: 'madagascar' },
+  { text: 'Malawi', id: 'malawi' },
+  { text: 'Malaysia', id: 'malaysia' },
+  { text: 'Maldives', id: 'maldives' },
+  { text: 'Mali', id: 'mali' },
+  { text: 'Malta', id: 'malta' },
+  { text: 'Marshall Islands', id: 'marshall_islands' },
+  { text: 'Martinique', id: 'martinique' },
+  { text: 'Mauritania', id: 'mauritania' },
+  { text: 'Mauritius', id: 'mauritius' },
+  { text: 'Mayotte', id: 'mayotte' },
+  { text: 'Mexico', id: 'mexico' },
+  { text: 'Micronesia', id: 'micronesia' },
+  { text: 'Moldova', id: 'moldova' },
+  { text: 'Monaco', id: 'monaco' },
+  { text: 'Mongolia', id: 'mongolia' },
+  { text: 'Montenegro', id: 'montenegro' },
+  { text: 'Montserrat', id: 'montserrat' },
+  { text: 'Morocco', id: 'morocco' },
+  { text: 'Mozambique', id: 'mozambique' },
+  { text: 'Namibia', id: 'namibia' },
+  { text: 'Nauru', id: 'nauru' },
+  { text: 'Nepal', id: 'nepal' },
+  { text: 'Netherlands', id: 'netherlands' },
+  { text: 'Netherlandsantilles', id: 'netherlandsantilles' },
+  { text: 'New Caledonia', id: 'new_caledonia' },
+  { text: 'New Guinea', id: 'new_guinea' },
+  { text: 'New Zealand', id: 'new_zealand' },
+  { text: 'Nicaragua', id: 'nicaragua' },
+  { text: 'Niger', id: 'niger' },
+  { text: 'Nigeria', id: 'nigeria' },
+  { text: 'Niue', id: 'niue' },
+  { text: 'Norfolk Island', id: 'norfolk_island' },
+  { text: 'North Korea', id: 'north_korea' },
+  { text: 'Northern Mariana Islands', id: 'northern_mariana_islands' },
+  { text: 'Norway', id: 'norway' },
+  { text: 'Oman', id: 'oman' },
+  { text: 'Pakistan', id: 'pakistan' },
+  { text: 'Palau', id: 'palau' },
+  { text: 'Palestine', id: 'palestine' },
+  { text: 'Panama', id: 'panama' },
+  { text: 'Paraguay', id: 'paraguay' },
+  { text: 'Peru', id: 'peru' },
+  { text: 'Philippines', id: 'philippines' },
+  { text: 'Pitcairn Islands', id: 'pitcairn_islands' },
+  { text: 'Poland', id: 'poland' },
+  { text: 'Portugal', id: 'portugal' },
+  { text: 'Puerto Rico', id: 'puerto_rico' },
+  { text: 'Qatar', id: 'qata' },
+  { text: 'Reunion', id: 'reunion' },
+  { text: 'Romania', id: 'Romania' },
+  { text: 'Russia', id: 'Russia' },
+  { text: 'Rwanda', id: 'Rwanda' },
+  { text: 'Saint Helena', id: 'saint_helena' },
+  { text: 'Saint Kitts and Nevis', id: 'saint_kitts_and_nevis' },
+  { text: 'Saint Lucia', id: 'saint_lucia' },
+  { text: 'Saint Pierre', id: 'saint_pierre' },
+  { text: 'Saint Vincent', id: 'saint_vincent' },
+  { text: 'Samoa', id: 'samoa' },
+  { text: 'San Marino', id: 'san_marino' },
+  { text: 'Sandwich Islands', id: 'sandwich_islands' },
+  { text: 'Sao Tome', id: 'sao_tome' },
+  { text: 'Saudi Arabia', id: 'saudi_arabia' },
+  { text: 'Scotland', id: 'scotland' },
+  { text: 'Senegal', id: 'senegal' },
+  { text: 'Serbia', id: 'serbia' },
+  { text: 'Serbia', id: 'serbia' },
+  { text: 'Seychelles', id: 'seychelles' },
+  { text: 'Sierra Leone', id: 'sierra_leone' },
+  { text: 'Singapore', id: 'singapore' },
+  { text: 'Slovakia', id: 'slovakia' },
+  { text: 'Slovenia', id: 'slovenia' },
+  { text: 'Solomon Islands', id: 'solomon_islands' },
+  { text: 'Somalia', id: 'somalia' },
+  { text: 'South Africa', id: 'south_africa' },
+  { text: 'South Korea', id: 'south_korea' },
+  { text: 'Spain', id: 'spain' },
+  { text: 'Sri Lanka', id: 'sri_lanka' },
+  { text: 'Sudan', id: 'sudan' },
+  { text: 'Suriname', id: 'suriname' },
+  { text: 'Swaziland', id: 'swaziland' },
+  { text: 'Sweden', id: 'sweden' },
+  { text: 'Switzerland', id: 'switzerland' },
+  { text: 'Syria', id: 'syria' },
+  { text: 'Taiwan', id: 'taiwan' },
+  { text: 'Tajikistan', id: 'tajikistan' },
+  { text: 'Tanzania', id: 'tanzania' },
+  { text: 'Thailand', id: 'thailand' },
+  { text: 'Timorleste', id: 'timorleste' },
+  { text: 'Togo', id: 'togo' },
+  { text: 'Tokelau', id: 'tokelau' },
+  { text: 'Tonga', id: 'tonga' },
+  { text: 'Trinidad', id: 'trinidad' },
+  { text: 'Tunisia', id: 'tunisia' },
+  { text: 'Turkey', id: 'turkey' },
+  { text: 'Turkmenistan', id: 'turkmenistan' },
+  { text: 'Tuvalu', id: 'tuvalu' },
+  { text: 'U.A.E.', id: 'united_arab_emirates' },
+  { text: 'Uganda', id: 'uganda' },
+  { text: 'Ukraine', id: 'ukraine' },
+  { text: 'United Kingdom', id: 'united_kingdom' },
+  { text: 'United States', id: 'united_states' },
+  { text: 'Uruguay', id: 'uruguay' },
+  { text: 'US Minor Islands', id: 'us_minor_islands' },
+  { text: 'US Virgin Islands', id: 'us_virgin_islands' },
+  { text: 'Uzbekistan', id: 'uzbekistan' },
+  { text: 'Vanuatu', id: 'vanuatu' },
+  { text: 'Vatican City', id: 'vatican_city' },
+  { text: 'Venezuela', id: 'venezuela' },
+  { text: 'Vietnam', id: 'vietnam' },
+  { text: 'Wales', id: 'wales' },
+  { text: 'Wallis and Futuna', id: 'wallis_and_futuna' },
+  { text: 'Western Sahara', id: 'western_sahara' },
+  { text: 'Yemen', id: 'yemen' },
+  { text: 'Zambia', id: 'zambia' },
+  { text: 'Zimbabwe', id: 'zimbabwe' },
+]
+
+export default class Categories extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			education: [],
-			employment: [],
-			community: [],
+			// community: [],
+			religion: undefined,
+			language: '',
+			countryOfOrigin: '',
 			transportation: [],
 			housing: [],
+			medianMonthlyCost: '',
 			safetyAndResources: [],
 			food: [],
 			rating: undefined,
@@ -140,18 +661,6 @@ export default class Categories extends Component{
 		}
 	}
 
-	toggleChangeEmployment = (e) => {
-		this.setState({
-			employmentToggle: !this.state.employmentToggle
-		})
-
-		if (this.state.employmentToggle !== false) {
-			this.setState({
-				employment: []
-			})
-		}
-	}
-
 	toggleChangeCommunity = (e) => {
 		this.setState({
 			communityToggle: !this.state.communityToggle
@@ -159,7 +668,9 @@ export default class Categories extends Component{
 
 		if (this.state.communityToggle !== false) {
 			this.setState({
-				community: []
+				religion: '',
+				language: '',
+				countryOfOrigin: ''
 			})
 		}
 	}
@@ -214,20 +725,42 @@ export default class Categories extends Component{
 		// console.log(this.state.education)
 	}
 
-	handleClickEmployment = (e) => {
-		const copyState = [...this.state.employment]
-		copyState.push(e.target.id)
+	// handleClickCommunity = (e) => {
+	// 	const copyState = [...this.state.community]
+	// 	copyState.push(e.target.id)
+	// 	this.setState({
+	// 		[e.target.value]: copyState
+	// 	})
+	// 	console.log(this.state)
+	// }
+
+	handleClickReligion = (e) => {
+		console.log(e.target)
 		this.setState({
-			[e.target.value]: copyState
+			religion: e.target.closest('div').id
+		})
+
+		// const copyState = [...this.state.transportation]
+		// copyState.push(e.target.id)
+		// console.log(e.target.innerHTML)
+		// console.log(e.target.closest('div').id)
+		console.log(this.state)
+	}
+
+	handleClickLanguage = (e) => {
+		// const copyState = [...this.state.transportation]
+		// copyState.push(e.target.id)
+		this.setState({
+			language: e.target.closest('div').id
 		})
 		console.log(this.state)
 	}
 
-	handleClickCommunity = (e) => {
-		const copyState = [...this.state.community]
-		copyState.push(e.target.id)
+	handleClickCountryOfOrigin = (e) => {
+		// const copyState = [...this.state.transportation]
+		// copyState.push(e.target.id)
 		this.setState({
-			[e.target.value]: copyState
+			countryOfOrigin: e.target.closest('div').id
 		})
 		console.log(this.state)
 	}
@@ -308,20 +841,31 @@ export default class Categories extends Component{
     						<label>Religion</label>	
     							<Dropdown
     								label='religion'
-    								placeholder="-Select-"/>
+    								selection
+    								fluid
+    								placeholder="-Select-"
+    								options={religions}
+    								onChange={(e) => this.handleClickReligion(e)}/>
     					</Form.Field>
     					<Form.Field>
     						<label>Language</label>	
     							<Dropdown
     								label='langauge'
+    								selection
+    								fluid
     								placeholder="-Select-"
-    								options={languages}/>
+    								options={languages}
+    								onChange={(e) => this.handleClickLanguage(e)}/>
     					</Form.Field>
     					<Form.Field>
     						<label>Country of Origin</label>	
     							<Dropdown
     								label='countryOfOrigin'
-    								placeholder="-Select-"/>
+    								selection
+    								fluid
+    								placeholder="-Select-"
+    								options={countryOfOrigin}
+    								onChange={(e) => this.handleClickCountryOfOrigin(e)}/>
     					</Form.Field>
     					<Button>Close</Button>
     				</Form>
