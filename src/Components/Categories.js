@@ -813,6 +813,7 @@ export default class Categories extends Component {
 		// console.log(this.state.language)
 		// console.log()
 		e.preventDefault()
+
 		if (this.state.rating === undefined) {
 		fetch(this.props.baseUrl , { 
 			method: "POST",
@@ -892,6 +893,10 @@ export default class Categories extends Component {
 		})} else {
 			fetch(this.props.baseUrl , { 
 			method: "POST",
+			headers: {
+					"Content-Type": "application/json",
+					"key": "se73A36yNqLbFyihaMgH"
+				},
 			body: JSON.stringify({
 				"meta": {
         			"length": 4
@@ -955,10 +960,10 @@ export default class Categories extends Component {
             			}
         			]
 				},
-				headers: {
-					"Content-Type": "application/json",
-					"key": "e73A36yNqLbFyihaMgH"
-				},
+				// headers: {
+				// 	"Content-Type": "application/json",
+				// 	"key": "se73A36yNqLbFyihaMgH"
+				// },
 				credentials: "include"
 			})
 		}).then(res => {
