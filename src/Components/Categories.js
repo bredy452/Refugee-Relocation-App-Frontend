@@ -960,17 +960,13 @@ export default class Categories extends Component {
             			}
         			]
 				},
-				// headers: {
-				// 	"Content-Type": "application/json",
-				// 	"key": "se73A36yNqLbFyihaMgH"
-				// },
 				credentials: "include"
 			})
 		}).then(res => {
 			return res.json()
 		}).then(data => {
 			console.log(data)
-		})
+		}).catch(error => console.error)
 		}
 	}
 
