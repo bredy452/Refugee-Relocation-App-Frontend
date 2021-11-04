@@ -7,6 +7,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Header from './Components/header/Header';
 
+let baseUrl = 'http://gapct2recommendationengine-env.eba-amwf2dwx.us-east-1.elasticbeanstalk.com/api/v1.0/recs'
+
+console.log(baseUrl)
 export default function App() {
 
   return (
@@ -17,7 +20,8 @@ export default function App() {
     </BrowserRouter>
     
     <HowItWorks/>
-    <Categories/>
+    <Categories baseUrl={baseUrl}/>
+
      {/*<MapContainer center={[39.2904, -76.6122]} zoom={13} scrollWheelZoom={true}>
   <TileLayer
     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

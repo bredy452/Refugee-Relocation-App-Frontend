@@ -50,7 +50,7 @@ export default function Choices(props) {
   						</Grid.Column>
   					)		
 				})}*/}
-				{props.selectedChoices.transportation.map((choice, i, f) => {
+				{props.selectedChoices.transportation.map((choice, f) => {
 					return (
 						<Grid.Column key={f}>
 							<List key={choice}>
@@ -59,7 +59,7 @@ export default function Choices(props) {
   						</Grid.Column>
   					)	
 				})}
-				{props.selectedChoices.housing.map((choice, i, f) => {
+				{props.selectedChoices.housing.map((choice, f) => {
 					return (
 						<Grid.Column key={f}>
 							<List key={choice}>
@@ -68,7 +68,7 @@ export default function Choices(props) {
   						</Grid.Column>
   					)
 				})}
-				{props.selectedChoices.safetyAndResources.map((choice, i, f) => {
+				{props.selectedChoices.safetyAndResources.map((choice, f) => {
 					return (
 						<Grid.Column key={f}>
 							<List key={choice}>
@@ -77,7 +77,7 @@ export default function Choices(props) {
   						</Grid.Column>
   					)
 				})}
-				{props.selectedChoices.food.map((choice, i, f) => {
+				{props.selectedChoices.food.map((choice, f) => {
 					return (
 						<Grid.Column key={f}>
 							<List key={choice}>

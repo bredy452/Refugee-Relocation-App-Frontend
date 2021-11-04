@@ -3,8 +3,8 @@ import Choices from './Choices'
 import {Button, Popup, Form, Dropdown, Radio} from 'semantic-ui-react'
 // import SliderView from 'semantic-ui-react-slider'
 
-// import USWDS from '../node_modules/uswds/src/js/components'
 
+// import USWDS from '../node_modules/uswds/src/js/components'
 let languages = [
 	{
 		text: 'Mandarin',
@@ -618,7 +618,7 @@ export default class Categories extends Component {
 			countryOfOrigin: '',
 			transportation: [],
 			housing: [],
-			medianMonthlyCost: '',
+			medianMonthlyCost: undefined,
 			safetyAndResources: [],
 			food: [],
 			rating: undefined,
@@ -735,7 +735,6 @@ export default class Categories extends Component {
 	// }
 
 	handleClickReligion = (e) => {
-		console.log(e.target)
 		this.setState({
 			religion: e.target.closest('div').id
 		})
@@ -744,7 +743,7 @@ export default class Categories extends Component {
 		// copyState.push(e.target.id)
 		// console.log(e.target.innerHTML)
 		// console.log(e.target.closest('div').id)
-		console.log(this.state)
+		console.log(this.state.religion)
 	}
 
 	handleClickLanguage = (e) => {
@@ -783,6 +782,13 @@ export default class Categories extends Component {
 		console.log(this.state)
 	}
 
+	// handleClickMonthlyCost = (e) => {
+	// 	this.setState({
+	// 		medianMonthlyCost: this.state.rating
+	// 	})
+	// 	console.log(this.state)
+	// }
+
 	handleClickSafety = (e) => {
 		const copyState = [...this.state.safetyAndResources]
 		copyState.push(e.target.id)
@@ -800,6 +806,86 @@ export default class Categories extends Component {
 		})
 		console.log(this.state)
 	}
+
+	// results = (e) => {
+	// 	e.preventDefault()
+	// 	fetch(this.props.baseUrl , { 
+	// 		method: "POST",
+	// 		body: JSON.stringify({
+	// 			"meta": {
+ //        			"length": 4
+ //    			},
+ //    			"params": {
+ //        			"education": [
+ //            			{
+ //               				"prompt": "education_type",
+ //                			"type": "select_multiple",
+ //                			"response": this.state.education
+ //            			}
+ //        			],
+ //        			"community": [
+ //            			{
+ //                			"prompt": "religion",
+ //                			"type": "select_one",
+ //                			"response": this.state.religion
+ //            			},
+ //            			{
+ //                			"prompt": "language",
+ //                			"type": "select_one",
+ //                			"response": this.state.language
+ //            			},
+ //            			{
+ //                			"prompt": "country_of_origin",
+ //                			"type": "select_one",
+ //                			"response": this.state.countryOfOrigin
+ //            			}
+ //        			],
+ //        			"transportation": [
+ //            			{
+ //                			"prompt": "transport_preference",
+ //                			"type": "select_multiple",
+ //                			"response": this.state.transportation
+ //            			}
+ //        			],
+ //        			"housing": [
+ //            			{
+ //                			"prompt": "housing_preference",
+ //                			"type": "select_multiple",
+ //                			"response": this.state.housing
+ //            			},
+ //            			{
+ //                			"prompt": "median_monthly_cost",
+ //                			"type": "select_one",
+ //                			"response": `${this.state.rating}.00`
+ //            			}
+ //        			],
+ //        			"safety_and_resources": [
+ //            			{
+ //                			"prompt": "safety_preference",
+ //                			"type": "select_multiple",
+ //                			"response": this.state.safetyAndResources
+ //            			}
+ //        			],
+ //        			"food": [
+ //            			{
+ //                			"prompt": "food_preferences",
+ //                			"type": "select_multiple",
+ //                			"response": this.state.food
+ //            			}
+ //        			]
+	// 			},
+	// 			headers: {
+	// 				'Content-Type': 'application/json',
+	// 				'key': 'e73A36yNqLbFyihaMgH'
+	// 			},
+	// 			credentials: 'include'
+	// 		})
+	// 	}).then(res => {
+	// 		return res.json()
+	// 	}).then(data => {
+	// 		console.log(data)
+	// 	})
+	// }
 
 	render() {
 		const {rating} = this.state
@@ -843,8 +929,8 @@ export default class Categories extends Component {
     								label='religion'
     								selection
     								fluid
-    								placeholder="-Select-"
-    								options={religions}
+    								placeholder={this.state.religion}
+    								clearable options={religions}
     								onChange={(e) => this.handleClickReligion(e)}/>
     					</Form.Field>
     					<Form.Field>
@@ -853,7 +939,7 @@ export default class Categories extends Component {
     								label='langauge'
     								selection
     								fluid
-    								placeholder="-Select-"
+    								placeholder={this.state.language}
     								options={languages}
     								onChange={(e) => this.handleClickLanguage(e)}/>
     					</Form.Field>
@@ -863,7 +949,7 @@ export default class Categories extends Component {
     								label='countryOfOrigin'
     								selection
     								fluid
-    								placeholder="-Select-"
+    								placeholder={this.state.language}
     								options={countryOfOrigin}
     								onChange={(e) => this.handleClickCountryOfOrigin(e)}/>
     					</Form.Field>
@@ -882,12 +968,12 @@ export default class Categories extends Component {
   				</Popup>
   				<Choices selectedChoices={this.state} toggleTransportation={this.toggleChangeTransportation} refresh={this.componentDidUpdate}/>
 
-  				<Popup trigger={<Radio toggle label='Housing' onChange={(e) => this.toggleChangeHousing(e)}/>} on= {'click'} hoverable>
-    				<Form>
+  				<Popup trigger={<Radio toggle label='Housing' onChange={(e) => this.toggleChangeHousing(e)}/>} on= {'click'} flowing>
+  					<Form>
     					<Form.Checkbox value='housing' id='temporary' label='Temporary Housing' onClick={(e) => this.handleClickHousing(e)}/>
     					<Form.Checkbox value='housing' id='low_income' label='Low Income Housing' onClick={(e) => this.handleClickHousing(e)}/>
     					<Form.Checkbox value='housing' id='rent_stabilized' label='Rent Stabalized Housing' onClick={(e) => this.handleClickHousing(e)}/>
-    					<Form.Checkbox value='housing' id='median_monthly_cost' label='Median Monthly Housing Cost' onClick={(e) => this.handleClickHousing(e)}/>
+    					<Form.Checkbox value='housing' id='median_monthly_cost' label='Median Monthly Housing Cost'/>
     					<input
           					type='range'
           					min={0}
@@ -903,7 +989,7 @@ export default class Categories extends Component {
   				</Popup>
   				<Choices selectedChoices={this.state} toggleHousing={this.toggleChangeHousing} refresh={this.componentDidUpdate}/>
 
-  				<Popup trigger={<Radio toggle label='Safety and Resources' onChange={(e) => this.toggleChangeSafety(e)}/>} on={'click'} hoverable>
+  				<Popup trigger={<Radio toggle label='Safety and Resources' onChange={(e) => this.toggleChangeSafety(e)}/>} on={'click'} flowing>
     				<Form>
     					<Form.Checkbox value='safetyAndResources' id='low_crime' label='Low Crime' onClick={(e) => this.handleClickSafety(e)}/>
     					<Form.Checkbox value='safetyAndResources' id='hospitals' label='Hospitals' onClick={(e) => this.handleClickSafety(e)}/>
@@ -914,7 +1000,7 @@ export default class Categories extends Component {
   				</Popup>
   				<Choices selectedChoices={this.state} toggleSafety={this.toggleChangeSafety} refresh={this.componentDidUpdate}/>
 
-  				<Popup trigger={<Radio toggle label='Food' onChange={(e) => this.toggleChangeFood(e)}/>} on={'click'} hoverable>
+  				<Popup trigger={<Radio toggle label='Food' onChange={(e) => this.toggleChangeFood(e)}/>} on={'click'} flowing>
     				<Form>
     					<Form.Checkbox value='food' id='supermarkets' label='Supermarkets' onClick={(e) => this.handleClickSafety(e)}/>
     					<Form.Checkbox value='food' id='convience_stores' label='Convience Stores' onClick={(e) => this.handleClickSafety(e)}/>
@@ -924,7 +1010,7 @@ export default class Categories extends Component {
     				</Form>
   				</Popup>
   				<Choices selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
-
+  				<Button primary onClick={(e) => this.results(e)}>See Results</Button>
 			
       
 			</>
