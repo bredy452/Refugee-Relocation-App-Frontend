@@ -825,7 +825,7 @@ export default class Categories extends Component {
 			method: "POST",
 			headers: {
 					"Content-Type": "application/json",
-					"key": "e73A36yNqLbFyihaMgH"
+					"key": "se73A36yNqLbFyihaMgH"
 			},
 			body: JSON.stringify({
 				"meta": {
