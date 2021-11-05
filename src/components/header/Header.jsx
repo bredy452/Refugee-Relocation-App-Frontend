@@ -4,6 +4,7 @@ import HeaderImage from './header-image/HeaderImage'
 import LogoBox from './logo-box/LogoBox'
 import Navbar from './navbar/Navbar'
 
+
 const Header = () => {
   return (
     <div>

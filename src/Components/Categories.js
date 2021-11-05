@@ -1,5 +1,11 @@
 import React, {Component} from "react"
-import Choices from "./Choices"
+import ChoicesEducation from "./ChoicesEducation"
+import ChoicesCommunity from "./ChoicesCommunity"
+import ChoicesTransportation from "./ChoicesTransportation"
+import ChoicesHousing from "./ChoicesHousing"
+import ChoicesSafetyAndResources from "./ChoicesSafetyAndResources"
+import ChoicesFood from "./ChoicesFood"
+
 import {Button, Popup, Form, Dropdown, Radio} from "semantic-ui-react"
 // import SliderView from "semantic-ui-react-slider"
 
@@ -817,6 +823,10 @@ export default class Categories extends Component {
 		if (this.state.rating === undefined) {
 		fetch(this.props.baseUrl , { 
 			method: "POST",
+			headers: {
+					"Content-Type": "application/json",
+					"key": "e73A36yNqLbFyihaMgH"
+			},
 			body: JSON.stringify({
 				"meta": {
         			"length": 4
@@ -880,10 +890,7 @@ export default class Categories extends Component {
             			}
         			]
 				},
-				headers: {
-					"Content-Type": "application/json",
-					"key": "e73A36yNqLbFyihaMgH"
-				},
+				
 				credentials: "include"
 			})
 		}).then(res => {
@@ -973,130 +980,133 @@ export default class Categories extends Component {
 	render() {
 		const {rating} = this.state
 		return (
-			<>
-				<Popup trigger={<Radio toggle label="Education" onChange={(e) => this.toggleChangeEducation(e)}/>} on={"click"} flowing >
-    				<Form>
-    					<Form.Checkbox value="education" id="primary_school" label="Primary School" onClick={(e) => this.handleClickEducation(e)}/>
+			<div class="Options">
+				<div class="Education">
+					<Popup trigger={<Radio toggle label="Education" onChange={(e) => this.toggleChangeEducation(e)}/>} on={"click"} flowing >
+    					<Form>
+    						<Form.Checkbox value="education" id="primary_school" label="Primary School" onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value="education" id="junior_high" label="Junior High School" onClick={(e) => this.handleClickEducation(e)}/>
+    						<Form.Checkbox value="education" id="junior_high" label="Junior High School" onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value="education" id="high_school" label="High School" onClick={(e) => this.handleClickEducation(e)}/>
+    						<Form.Checkbox value="education" id="high_school" label="High School" onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value="education" id="college" label="College/University" onClick={(e) => this.handleClickEducation(e)}/>
+    						<Form.Checkbox value="education" id="college" label="College/University" onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value="education" id="ged_classes" label="GED Classes" onClick={(e) => this.handleClickEducation(e)}/>
+    						<Form.Checkbox value="education" id="ged_classes" label="GED Classes" onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Form.Checkbox value="education" id="night_classes" label="Night Classes" onClick={(e) => this.handleClickEducation(e)}/>
+    						<Form.Checkbox value="education" id="night_classes" label="Night Classes" onClick={(e) => this.handleClickEducation(e)}/>
 
-    					<Button>Close</Button>
-    				</Form>
-  				</Popup>
-  				<Choices selectedChoices={this.state} toggleEducation={this.toggleChangeEducation} refresh={this.componentDidUpdate}/>
-  				{/*<Popup trigger={<Radio toggle label="Employment" onChange={(e) => this.toggleChangeEducation(e)}/>} on={"click"} flowing>
-    				<Form>
-    					<Form.Checkbox value="employment" id="" label=""/>
-    					<Form.Checkbox value="employment" id="" label=""/>
-    					<Form.Checkbox value="employment" id="" label=""/>
-    					<Form.Checkbox value="employment" id="" label=""/>
-    					<Form.Checkbox value="employment" id="" label=""/>
-    					<Form.Checkbox value="employment" id="" label=""/>
-    					<Form.Checkbox value="employment" id="" label=""/>
-    					<Button>Close</Button>
-    				</Form>
-  				</Popup>*/}
-  				<Popup trigger={<Radio toggle label="Community" onChange={(e) => this.toggleChangeCommunity(e)}/>} on={"click"} flowing>
-    				<Form>
-    					<Form.Field>
-    						<label>Religion</label>	
-    							<Dropdown
+    						<Button>Close</Button>
+    					</Form>
+  					</Popup>
+  					<ChoicesEducation selectedChoices={this.state} toggleEducation={this.toggleChangeEducation} refresh={this.componentDidUpdate}/>
+  				</div>
+
+  				<div class="Community">
+  					<Popup trigger={<Radio toggle label="Community" onChange={(e) => this.toggleChangeCommunity(e)}/>} on={"click"} flowing>
+    					<Form>
+    						<Form.Field>
+    							<label>Religion</label>	
+    								<Dropdown
     								label="religion"
     								selection
     								fluid
     								placeholder={this.state.religion}
     								clearable options={religions}
     								onChange={(e) => this.handleClickReligion(e)}/>
-    					</Form.Field>
-    					<Form.Field>
-    						<label>Language</label>	
-    							<Dropdown
+    						</Form.Field>
+    						<Form.Field>
+    							<label>Language</label>	
+    								<Dropdown
     								label="langauge"
     								selection
     								fluid
     								placeholder={this.state.language}
     								options={languages}
     								onChange={(e) => this.handleClickLanguage(e)}/>
-    					</Form.Field>
-    					<Form.Field>
-    						<label>Country of Origin</label>	
-    							<Dropdown
+    						</Form.Field>
+    						<Form.Field>
+    							<label>Country of Origin</label>	
+    								<Dropdown
     								label="countryOfOrigin"
     								selection
     								fluid
     								placeholder={this.state.countryOfOrigin}
     								options={countryOfOrigin}
     								onChange={(e) => this.handleClickCountryOfOrigin(e)}/>
-    					</Form.Field>
-    					<Button>Close</Button>
-    				</Form>
-  				</Popup>
-  				<Choices selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}/>
+    						</Form.Field>
+    						<Button>Close</Button>
+    					</Form>
+  					</Popup>
+  					<ChoicesCommunity selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
+  					/>
+  				</div>
 
-  				<Popup trigger={<Radio toggle label="Transportation" onChange={(e) => this.toggleChangeTransportation(e)}/>} on={"click"} flowing>
-    				<Form>
-    					<Form.Checkbox value="transportation" id="public_transportation" label="Public Transportation" onClick={(e) => this.handleClickTransportation(e)}/>
-    					<Form.Checkbox value="transportation" id="walkability" label="Walkability" onClick={(e) => this.handleClickTransportation(e)}/>
-    					<Form.Checkbox value="transportation" id="carpooling" label="Carpooling Programs" onClick={(e) => this.handleClickTransportation(e)}/>
-    					<Button>Close</Button>
-    				</Form>
-  				</Popup>
-  				<Choices selectedChoices={this.state} toggleTransportation={this.toggleChangeTransportation} refresh={this.componentDidUpdate}/>
+  				<div class="transportation">
+  					<Popup trigger={<Radio toggle label="Transportation" onChange={(e) => this.toggleChangeTransportation(e)}/>} on={"click"} flowing>
+    					<Form>
+    						<Form.Checkbox value="transportation" id="public_transportation" label="Public Transportation" onClick={(e) => this.handleClickTransportation(e)}/>
+    						<Form.Checkbox value="transportation" id="walkability" label="Walkability" onClick={(e) => this.handleClickTransportation(e)}/>
+    						<Form.Checkbox value="transportation" id="carpooling" label="Carpooling Programs" onClick={(e) => this.handleClickTransportation(e)}/>
+    						<Button>Close</Button>
+    					</Form>
+  					</Popup>
+  					<ChoicesTransportation selectedChoices={this.state} toggleTransportation={this.toggleChangeTransportation} refresh={this.componentDidUpdate}/>
+  				</div>
 
-  				<Popup trigger={<Radio toggle label="Housing" onChange={(e) => this.toggleChangeHousing(e)}/>} on= {"click"} flowing>
-  					<Form>
-    					<Form.Checkbox value="housing" id="temporary" label="Temporary Housing" onClick={(e) => this.handleClickHousing(e)}/>
-    					<Form.Checkbox value="housing" id="low_income" label="Low Income Housing" onClick={(e) => this.handleClickHousing(e)}/>
-    					<Form.Checkbox value="housing" id="rent_stabilized" label="Rent Stabalized Housing" onClick={(e) => this.handleClickHousing(e)}/>
-    					<Form.Checkbox value="housing" id="median_monthly_cost" label="Median Monthly Housing Cost"/>
-    					<input
+  				<div class="Housing">
+  					<Popup trigger={<Radio toggle label="Housing" onChange={(e) => this.toggleChangeHousing(e)}/>} on= {"click"} flowing>
+  						<Form>
+    						<Form.Checkbox value="housing" id="temporary" label="Temporary Housing" onClick={(e) => this.handleClickHousing(e)}/>
+    						<Form.Checkbox value="housing" id="low_income" label="Low Income Housing" onClick={(e) => this.handleClickHousing(e)}/>
+    						<Form.Checkbox value="housing" id="rent_stabilized" label="Rent Stabalized Housing" onClick={(e) => this.handleClickHousing(e)}/>
+    						<Form.Checkbox value="housing" id="median_monthly_cost" label="Median Monthly Housing Cost"/>
+    						<input
           					type="range"
           					min={0}
           					max={4000}
           					value={rating}
           					onChange={this.handleChange}
-        				/>
-        				<br />
-        				<div>${rating}</div>
+        					/>
+        					<br />
+        					<div>${rating}</div>
 
-    					<Button>Close</Button>
-    				</Form>
-  				</Popup>
-  				<Choices selectedChoices={this.state} toggleHousing={this.toggleChangeHousing} refresh={this.componentDidUpdate}/>
+    						<Button>Close</Button>
+    					</Form>
+  					</Popup>
+  					<ChoicesHousing selectedChoices={this.state} toggleHousing={this.toggleChangeHousing} refresh={this.componentDidUpdate}/>
+  				</div>
 
-  				<Popup trigger={<Radio toggle label="Safety and Resources" onChange={(e) => this.toggleChangeSafety(e)}/>} on={"click"} flowing>
-    				<Form>
-    					<Form.Checkbox value="safetyAndResources" id="low_crime" label="Low Crime" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Form.Checkbox value="safetyAndResources" id="hospitals" label="Hospitals" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Form.Checkbox value="safetyAndResources" id="police" label="Police" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Form.Checkbox value="safetyAndResources" id="shelters" label="Shelters" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Button>Close</Button>
-    				</Form>
-  				</Popup>
-  				<Choices selectedChoices={this.state} toggleSafety={this.toggleChangeSafety} refresh={this.componentDidUpdate}/>
+  				<div class="Safety">
+  					<Popup trigger={<Radio toggle label="Safety and Resources" onChange={(e) => this.toggleChangeSafety(e)}/>} on={"click"} flowing>
+    					<Form>
+    						<Form.Checkbox value="safetyAndResources" id="low_crime" label="Low Crime" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Form.Checkbox value="safetyAndResources" id="hospitals" label="Hospitals" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Form.Checkbox value="safetyAndResources" id="police" label="Police" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Form.Checkbox value="safetyAndResources" id="shelters" label="Shelters" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Button>Close</Button>
+    					</Form>
+  					</Popup>
+  					<ChoicesSafetyAndResources selectedChoices={this.state} toggleSafety={this.toggleChangeSafety} refresh={this.componentDidUpdate}/>
+  				</div>
 
-  				<Popup trigger={<Radio toggle label="Food" onChange={(e) => this.toggleChangeFood(e)}/>} on={"click"} flowing>
-    				<Form>
-    					<Form.Checkbox value="food" id="supermarkets" label="Supermarkets" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Form.Checkbox value="food" id="convience_stores" label="Convience Stores" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Form.Checkbox value="food" id="snap_ebt" label="Snap EBT" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Form.Checkbox value="food" id="ethnic_markets" label="Ethnic Markets" onClick={(e) => this.handleClickSafety(e)}/>
-    					<Button>Close</Button>
-    				</Form>
-  				</Popup>
-  				<Choices selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
+  				<div class="food">
+  					<Popup trigger={<Radio toggle label="Food" onChange={(e) => this.toggleChangeFood(e)}/>} on={"click"} flowing>
+    					<Form>
+    						<Form.Checkbox value="food" id="supermarkets" label="Supermarkets" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Form.Checkbox value="food" id="convience_stores" label="Convience Stores" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Form.Checkbox value="food" id="snap_ebt" label="Snap EBT" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Form.Checkbox value="food" id="ethnic_markets" label="Ethnic Markets" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Button>Close</Button>
+    					</Form>
+  					</Popup>
+  					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
+  				</div>
+
   				<Button primary onClick={(e) => this.results(e)}>See Results</Button>
 			
       
-			</>
+			</div>
 
 			)
 	}
