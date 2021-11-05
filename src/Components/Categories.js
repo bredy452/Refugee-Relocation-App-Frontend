@@ -819,8 +819,6 @@ export default class Categories extends Component {
 		// console.log(this.state.language)
 		// console.log()
 		e.preventDefault()
-
-		if (this.state.rating === undefined) {
 		fetch(this.props.baseUrl , { 
 			method: "POST",
 			headers: {
@@ -872,84 +870,7 @@ export default class Categories extends Component {
             			{
                 			"prompt": "median_monthly_cost",
                 			"type": "select_one",
-                			"response": ""
-            			}
-        			],
-        			"safety_and_resources": [
-            			{
-                			"prompt": "safety_preference",
-                			"type": "select_multiple",
-                			"response": this.state.safetyAndResources
-            			}
-        			],
-        			"food": [
-            			{
-                			"prompt": "food_preferences",
-                			"type": "select_multiple",
-                			"response": this.state.food
-            			}
-        			]
-				},
-				
-				credentials: "include"
-			})
-		}).then(res => {
-			return res.json()
-		}).then(data => {
-			console.log(data)
-		})} else {
-			fetch(this.props.baseUrl , { 
-			method: "POST",
-			headers: {
-					"Content-Type": "application/json",
-					"key": "se73A36yNqLbFyihaMgH"
-				},
-			body: JSON.stringify({
-				"meta": {
-        			"length": 4
-    			},
-    			"params": {
-        			"education": [
-            			{
-               				"prompt": "education_type",
-                			"type": "select_multiple",
-                			"response": this.state.education
-            			}
-        			],
-        			"community": [
-            			{
-                			"prompt": "religion",
-                			"type": "select_one",
-                			"response": this.state.religion
-            			},
-            			{
-                			"prompt": "language",
-                			"type": "select_one",
-                			"response": this.state.language
-            			},
-            			{
-                			"prompt": "country_of_origin",
-                			"type": "select_one",
-                			"response": this.state.countryOfOrigin
-            			}
-        			],
-        			"transportation": [
-            			{
-                			"prompt": "transport_preference",
-                			"type": "select_multiple",
-                			"response": this.state.transportation
-            			}
-        			],
-        			"housing": [
-            			{
-                			"prompt": "housing_preference",
-                			"type": "select_multiple",
-                			"response": this.state.housing
-            			},
-            			{
-                			"prompt": "median_monthly_cost",
-                			"type": "select_one",
-                			"response": `${this.state.rating}.00`
+                			"response": `${this.state.rating}`
             			}
         			],
         			"safety_and_resources": [
@@ -973,8 +894,7 @@ export default class Categories extends Component {
 			return res.json()
 		}).then(data => {
 			console.log(data)
-		}).catch(error => console.error)
-		}
+		}).catch(error=> console.error)
 	}
 
 	render() {
