@@ -29,3 +29,12 @@ body {
   // Change this later 
   font-size: 2rem;
 }
+
+.Options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /*width: 500px;*/
+  /*flex-direction: column;*/
+}

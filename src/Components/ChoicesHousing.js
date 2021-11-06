@@ -9,7 +9,7 @@ export default function ChoicesHousing(props) {
 					return (
 						<Grid.Column key={f}>
 							<List key={choice}>
-    							<List.Item>{choice}</List.Item>
+    							<List.Item>{choice.replace('_', ' ')}</List.Item>
   							</List>
   						</Grid.Column>
   					)

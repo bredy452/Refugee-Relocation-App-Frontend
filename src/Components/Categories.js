@@ -676,7 +676,7 @@ export default class Categories extends Component {
 
 		if (this.state.communityToggle !== false) {
 			this.setState({
-				religion: "",
+				religion: undefined,
 				language: "",
 				countryOfOrigin: ""
 			})
@@ -733,15 +733,6 @@ export default class Categories extends Component {
 		// console.log(this.state.education)
 	}
 
-	// handleClickCommunity = (e) => {
-	// 	const copyState = [...this.state.community]
-	// 	copyState.push(e.target.id)
-	// 	this.setState({
-	// 		[e.target.value]: copyState
-	// 	})
-	// 	console.log(this.state)
-	// }
-
 	handleClickReligion = (e) => {
 		this.setState({
 			religion: e.target.closest("div").id
@@ -789,13 +780,6 @@ export default class Categories extends Component {
 		})
 		console.log(this.state)
 	}
-
-	// handleClickMonthlyCost = (e) => {
-	// 	this.setState({
-	// 		medianMonthlyCost: this.state.rating
-	// 	})
-	// 	console.log(this.state)
-	// }
 
 	handleClickSafety = (e) => {
 		const copyState = [...this.state.safetyAndResources]
@@ -902,8 +886,9 @@ export default class Categories extends Component {
 	render() {
 		const {rating} = this.state
 		return (
-			<div class="Options">
-				<div class="Education">
+			
+			<div className="Options">
+				<div className="Education">
 					<Popup trigger={<Radio toggle label="Education" onChange={(e) => this.toggleChangeEducation(e)}/>} on={"click"} flowing >
     					<Form>
     						<Form.Checkbox value="education" id="primary_school" label="Primary School" onClick={(e) => this.handleClickEducation(e)}/>
@@ -924,7 +909,7 @@ export default class Categories extends Component {
   					<ChoicesEducation selectedChoices={this.state} toggleEducation={this.toggleChangeEducation} refresh={this.componentDidUpdate}/>
   				</div>
 
-  				<div class="Community">
+  				<div className="Community">
   					<Popup trigger={<Radio toggle label="Community" onChange={(e) => this.toggleChangeCommunity(e)}/>} on={"click"} flowing>
     					<Form>
     						<Form.Field>
@@ -964,7 +949,7 @@ export default class Categories extends Component {
   					/>
   				</div>
 
-  				<div class="transportation">
+  				<div className="transportation">
   					<Popup trigger={<Radio toggle label="Transportation" onChange={(e) => this.toggleChangeTransportation(e)}/>} on={"click"} flowing>
     					<Form>
     						<Form.Checkbox value="transportation" id="public_transportation" label="Public Transportation" onClick={(e) => this.handleClickTransportation(e)}/>
@@ -976,8 +961,8 @@ export default class Categories extends Component {
   					<ChoicesTransportation selectedChoices={this.state} toggleTransportation={this.toggleChangeTransportation} refresh={this.componentDidUpdate}/>
   				</div>
 
-  				<div class="Housing">
-  					<Popup trigger={<Radio toggle label="Housing" onChange={(e) => this.toggleChangeHousing(e)}/>} on= {"click"} flowing>
+  				<div className="Housing">
+  					<Popup trigger={<Radio toggle label="Housing" onChange={(e) => this.toggleChangeHousing(e)}/>} on={"click"} flowing>
   						<Form>
     						<Form.Checkbox value="housing" id="temporary" label="Temporary Housing" onClick={(e) => this.handleClickHousing(e)}/>
     						<Form.Checkbox value="housing" id="low_income" label="Low Income Housing" onClick={(e) => this.handleClickHousing(e)}/>
@@ -999,7 +984,7 @@ export default class Categories extends Component {
   					<ChoicesHousing selectedChoices={this.state} toggleHousing={this.toggleChangeHousing} refresh={this.componentDidUpdate}/>
   				</div>
 
-  				<div class="Safety">
+  				<div className="Safety">
   					<Popup trigger={<Radio toggle label="Safety and Resources" onChange={(e) => this.toggleChangeSafety(e)}/>} on={"click"} flowing>
     					<Form>
     						<Form.Checkbox value="safetyAndResources" id="low_crime" label="Low Crime" onClick={(e) => this.handleClickSafety(e)}/>
@@ -1012,7 +997,7 @@ export default class Categories extends Component {
   					<ChoicesSafetyAndResources selectedChoices={this.state} toggleSafety={this.toggleChangeSafety} refresh={this.componentDidUpdate}/>
   				</div>
 
-  				<div class="food">
+  				<div className="Food">
   					<Popup trigger={<Radio toggle label="Food" onChange={(e) => this.toggleChangeFood(e)}/>} on={"click"} flowing>
     					<Form>
     						<Form.Checkbox value="food" id="supermarkets" label="Supermarkets" onClick={(e) => this.handleClickSafety(e)}/>
@@ -1022,6 +1007,7 @@ export default class Categories extends Component {
     						<Button>Close</Button>
     					</Form>
   					</Popup>
+
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
   				</div>
           {/* <Link to="/results"> */}
@@ -1040,10 +1026,15 @@ export default class Categories extends Component {
               </div>
             ))}
           </div>
-			</div>
 
-			)
-	}
+  					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
+  				</div>		
+
+			
+			
+			
+
+			
+	
 
 
-}
