@@ -1007,10 +1007,8 @@ export default class Categories extends Component {
     						<Button>Close</Button>
     					</Form>
   					</Popup>
-<<<<<<< HEAD
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
   				</div>		
-=======
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
   				</div>
           {/* <Link to="/results"> */}
@@ -1022,16 +1020,18 @@ export default class Categories extends Component {
               <div className="city-cards" key={data.id}>
                 <Link to={`/city/${data.id}`}>
                 <div className="city-card">
-                  <div className="city-name">{data.place}</div>
-                  <div className="city-relevance">Relevance:{data.relevance}</div>
+                	<div className="city-name">
+                  		{data.place}
+                  	</div>
+                <div className="city-relevance">
+                 	Relevance:{data.relevance}
                 </div>
-                </Link>
+               </div>
+            </Link>
               </div>
             ))}
           </div>
->>>>>>> naved
-			</div>
-			<Button primary onClick={(e) => this.results(e)}>See Results</Button>
+			{/*<Button primary onClick={(e) => this.results(e)}>See Results</Button>*/}
 			</>
 
 			)

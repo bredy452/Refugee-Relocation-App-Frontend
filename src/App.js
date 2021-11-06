@@ -18,17 +18,6 @@ export default function App() {
 
   return (
     <>
-    {/* <BrowserRouter >
-      <Route exact path="" component={Header} />
-      <Route exact path="/home"/>
-    </BrowserRouter>
-   {/* <Banner/>*/}
-      <Route exact path="/results">
-        <Results/>
-      </Route>
-    
-    <HowItWorks/>
-    <Categories baseUrl={baseUrl}/> */}
     <Switch>
       <Route exact path="/">
         <Header />
