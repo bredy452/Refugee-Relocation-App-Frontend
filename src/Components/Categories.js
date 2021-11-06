@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import { Link } from "react-router-dom"
 import ChoicesEducation from "./ChoicesEducation"
 import ChoicesCommunity from "./ChoicesCommunity"
 import ChoicesTransportation from "./ChoicesTransportation"
@@ -633,7 +634,8 @@ export default class Categories extends Component {
 			transportationToggle: false,
 			housingToggle: false,
 			safetyAndResourcesToggle: false,
-			foodToggle: false
+			foodToggle: false,
+      data: []
 		}
 		console.log(this.props.baseUrl)
 	}
@@ -877,7 +879,7 @@ export default class Categories extends Component {
 		}).then(res => {
 			return res.json()
 		}).then(data => {
-			console.log(data)
+			this.setState({data});
 		}).catch(error=> console.error)
 	}
 
@@ -1005,8 +1007,29 @@ export default class Categories extends Component {
     						<Button>Close</Button>
     					</Form>
   					</Popup>
+<<<<<<< HEAD
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
   				</div>		
+=======
+  					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
+  				</div>
+          {/* <Link to="/results"> */}
+  				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button>
+          {/* </Link> */}
+          <Link to="/results">Link</Link>
+          <div className="city-container">
+            {this.state.data.map((data) => (
+              <div className="city-cards" key={data.id}>
+                <Link to={`/city/${data.id}`}>
+                <div className="city-card">
+                  <div className="city-name">{data.place}</div>
+                  <div className="city-relevance">Relevance:{data.relevance}</div>
+                </div>
+                </Link>
+              </div>
+            ))}
+          </div>
+>>>>>>> naved
 			</div>
 			<Button primary onClick={(e) => this.results(e)}>See Results</Button>
 			</>
