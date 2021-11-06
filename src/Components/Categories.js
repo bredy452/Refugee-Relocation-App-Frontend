@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import { Link } from "react-router-dom"
 import ChoicesEducation from "./ChoicesEducation"
 import ChoicesCommunity from "./ChoicesCommunity"
 import ChoicesTransportation from "./ChoicesTransportation"
@@ -633,7 +634,8 @@ export default class Categories extends Component {
 			transportationToggle: false,
 			housingToggle: false,
 			safetyAndResourcesToggle: false,
-			foodToggle: false
+			foodToggle: false,
+      data: []
 		}
 		console.log(this.props.baseUrl)
 	}
@@ -893,7 +895,7 @@ export default class Categories extends Component {
 		}).then(res => {
 			return res.json()
 		}).then(data => {
-			console.log(data)
+			this.setState({data});
 		}).catch(error=> console.error)
 	}
 
@@ -1022,10 +1024,16 @@ export default class Categories extends Component {
   					</Popup>
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
   				</div>
-
-  				<Button primary onClick={(e) => this.results(e)}>See Results</Button>
-			
-      
+          {/* <Link to="/results"> */}
+  				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button>
+          {/* </Link> */}
+          <Link to="/results">Link</Link>
+          <div>
+            {this.state.data.map((data) => (
+              <div key={data.id}>{data.place} Relevance:{data.relevance}
+              </div>
+            ))}
+          </div>
 			</div>
 
 			)
