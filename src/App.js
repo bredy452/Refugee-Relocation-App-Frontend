@@ -8,6 +8,7 @@ import { Route, Switch } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Header from './Components/header/Header';
 import Results from './Components/Results';
+import CityDetail from './Components/CityDetail';
 
 let baseUrl = 'http://gapct2recommendationengine-env.eba-amwf2dwx.us-east-1.elasticbeanstalk.com/api/v1.0/recs'
 
@@ -34,6 +35,9 @@ export default function App() {
       </Route>
       <Route exact path="/results">
         <Results/>
+      </Route>
+      <Route exact path="/city/:id">
+        <CityDetail/>
       </Route>
     </Switch>
 

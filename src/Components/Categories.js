@@ -1028,9 +1028,15 @@ export default class Categories extends Component {
   				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button>
           {/* </Link> */}
           <Link to="/results">Link</Link>
-          <div>
+          <div className="city-container">
             {this.state.data.map((data) => (
-              <div key={data.id}>{data.place} Relevance:{data.relevance}
+              <div className="city-cards" key={data.id}>
+                <Link to={`/city/${data.id}`}>
+                <div className="city-card">
+                  <div className="city-name">{data.place}</div>
+                  <div className="city-relevance">Relevance:{data.relevance}</div>
+                </div>
+                </Link>
               </div>
             ))}
           </div>
