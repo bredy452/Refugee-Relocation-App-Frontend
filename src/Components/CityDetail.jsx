@@ -68,7 +68,7 @@ const CityDetail = () => {
           </div>
           <div className="poverty">Poverty Rate: {city.poverty_rate}</div>
           <div className="med-month-housing">
-          Median Monthly Housing Cost: {city.med_monthly_housing}
+          Median Monthly Housing Cost: ${city.med_monthly_housing}
           </div>
         </div>
       </div>
