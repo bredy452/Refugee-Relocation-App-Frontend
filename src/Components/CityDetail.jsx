@@ -66,7 +66,7 @@ const CityDetail = () => {
           </div>*/}
           <div className="unemployment">
 
-            <Card fluid centered >
+            <Card fluid centered>
               <Card.Content>
                 <Card.Description>
 
@@ -99,7 +99,7 @@ const CityDetail = () => {
                         ${city.med_monthly_housing}
                     </Grid.Column>
                   </Grid>
-                  
+
                 </Card.Description>
               </Card.Content>
             </Card> 
