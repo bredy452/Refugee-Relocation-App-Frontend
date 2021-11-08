@@ -49,6 +49,7 @@ const CityDetail = () => {
   if (isLoaded) {
     coordinates = city.map_center
   }
+  console.log(city.map_center)
   console.log(coordinates)
 
   return (

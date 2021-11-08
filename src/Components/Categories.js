@@ -1000,16 +1000,16 @@ export default class Categories extends Component {
   				<div className="Food">
   					<Popup trigger={<Radio toggle label="Food" onChange={(e) => this.toggleChangeFood(e)}/>} on={"click"} flowing>
     					<Form>
-    						<Form.Checkbox value="food" id="supermarkets" label="Supermarkets" onClick={(e) => this.handleClickSafety(e)}/>
-    						<Form.Checkbox value="food" id="convience_stores" label="Convience Stores" onClick={(e) => this.handleClickSafety(e)}/>
-    						<Form.Checkbox value="food" id="snap_ebt" label="Snap EBT" onClick={(e) => this.handleClickSafety(e)}/>
-    						<Form.Checkbox value="food" id="ethnic_markets" label="Ethnic Markets" onClick={(e) => this.handleClickSafety(e)}/>
+    						<Form.Checkbox value="food" id="supermarkets" label="Supermarkets" onClick={(e) => this.handleClickFood(e)}/>
+    						<Form.Checkbox value="food" id="convience_stores" label="Convience Stores" onClick={(e) => this.handleClickFood(e)}/>
+    						<Form.Checkbox value="food" id="snap_ebt" label="Snap EBT" onClick={(e) => this.handleClickFood(e)}/>
+    						<Form.Checkbox value="food" id="ethnic_markets" label="Ethnic Markets" onClick={(e) => this.handleClickFood(e)}/>
     						<Button>Close</Button>
     					</Form>
   					</Popup>
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
   				</div>		
-  				</div>
+  			</div>
           {/* <Link to="/results"> */}
   				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button>
           {/* </Link> */}
