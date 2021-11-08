@@ -22,9 +22,9 @@ export default function App() {
         <HowItWorks/>
         <Categories baseUrl={baseUrl}/>
       </Route>
-      <Route exact path="/results">
+      {/*<Route exact path="/results">
         <Results/>
-      </Route>
+      </Route>*/}
       <Route exact path="/city/:id">
         <CityDetail/>
       </Route>

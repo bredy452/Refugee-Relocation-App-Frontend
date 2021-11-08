@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
+import {Progress} from 'semantic-ui-react'
 
 const CityDetail = () => {
   const [city, setCity] = useState({});
@@ -61,9 +62,9 @@ const CityDetail = () => {
           <div className="city-description">Description: {city.description}</div>
           <div className="city-pop">Population: {city.total_pop}</div>
           <div className="unemployment">
-          Unemployment Rate: {city.unemployment_rate}
+          Unemployment Rate:   {(city.unemployment_rate * 100).toFixed(3)}%
           </div>
-          <div className="poverty">Poverty Rate: {city.poverty_rate}</div>
+          <div className="poverty">Poverty Rate:   {(city.poverty_rate * 100).toFixed(3)}%</div>
           <div className="med-month-housing">
           Median Monthly Housing Cost: ${city.med_monthly_housing}
           </div>
