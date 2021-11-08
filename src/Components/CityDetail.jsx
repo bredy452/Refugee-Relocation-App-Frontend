@@ -55,8 +55,12 @@ const CityDetail = () => {
 
   return (
     <>
-      <h3 className='placeName'>{city.place}</h3>
-
+      <Grid.Column>
+          <h3 className='placeName'>{city.place}</h3>
+      </Grid.Column>
+      <Grid.Column>
+          <h4 className='placeName'>{city.state}</h4>
+      </Grid.Column>
       {coordinates && <MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -129,11 +133,6 @@ const CityDetail = () => {
           </div>
           {/*<div className="poverty">Poverty Rate:   <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small'/></div>*/}
         </div>
-        <div className="detail">
-          <div className="city-name">City:   {city.place}</div>
-          <div className="state-name">State:   {city.state}</div>
-          <div className="city-description">Description:<br></br>{city.description}</div>
-      </div>
     </>
   );
 };
