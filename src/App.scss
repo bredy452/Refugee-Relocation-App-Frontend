@@ -1,6 +1,8 @@
 .leaflet-container {
   width: 70vw;
-  height: 70vh;
+  height: 40vh;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 // ==========================================================================
@@ -37,5 +39,22 @@ body {
   flex-direction: column;
   /*width: 500px;*/
   /*flex-direction: column;*/
+}
+
+.Progress {
+  height: 40%;
+  width: 30%;
+}
+
+.unemployment {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.poverty {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 

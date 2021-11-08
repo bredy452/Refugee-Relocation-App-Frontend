@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
-import {Progress} from 'semantic-ui-react'
+import {Progress, Card, Grid} from 'semantic-ui-react'
 
 const CityDetail = () => {
   const [city, setCity] = useState({});
@@ -57,19 +57,54 @@ const CityDetail = () => {
     <>
       <div className="city-detail-container">
         <div className="detail">
-          <div className="city-name">City: {city.place}</div>
-          <div className="state-name">State: {city.state}</div>
-          <div className="city-description">Description: {city.description}</div>
-          <div className="city-pop">Population: {city.total_pop}</div>
-          <div className="unemployment">
-          Unemployment Rate:   {(city.unemployment_rate * 100).toFixed(3)}%
-          </div>
-          <div className="poverty">Poverty Rate:   {(city.poverty_rate * 100).toFixed(3)}%</div>
+          <div className="city-name">City:   {city.place}</div>
+          <div className="state-name">State:   {city.state}</div>
+          <div className="city-description">Description:<br></br>{city.description}</div>
+          {/*<div className="city-pop">Population: {city.total_pop}</div>
           <div className="med-month-housing">
-          Median Monthly Housing Cost: ${city.med_monthly_housing}
+          Median Monthly Housing Cost:   ${city.med_monthly_housing}
+          </div>*/}
+          <div className="unemployment">
+
+            <Card centered >
+              <Card.Content>
+                <Card.Description>
+
+                  <Grid.Column>
+                    <Card.Header>
+                    Unemployment Rate:
+                    </Card.Header>
+                    <Progress className='Progress' percent={(city.unemployment_rate * 100).toFixed(3)} color='blue' size='small' />
+                  </Grid.Column>
+
+                  <Grid.Column>
+                    <Card.Header>
+                    Poverty Rate:
+                    </Card.Header>
+                    <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small' />
+                  </Grid.Column>
+
+                  <Grid.Column>
+                    <Card.Header>
+                      Population:
+                    </Card.Header>
+                    {city.total_pop}
+                  </Grid.Column>
+
+                  <Grid.Column>
+                    <Card.Header>
+                      Median Monthly Housing Cost:
+                    </Card.Header>
+                    ${city.med_monthly_housing}
+                  </Grid.Column>
+
+                </Card.Description>
+              </Card.Content>
+            </Card> 
           </div>
+          {/*<div className="poverty">Poverty Rate:   <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small'/></div>*/}
         </div>
-      </div>
+      </div><br></br>
 
       {coordinates &&<MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
         <TileLayer
