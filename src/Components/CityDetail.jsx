@@ -66,41 +66,44 @@ const CityDetail = () => {
           </div>*/}
           <div className="unemployment">
 
-            <Card centered >
+            <Card fluid centered >
               <Card.Content>
                 <Card.Description>
 
-                  <Grid.Column>
-                    <Card.Header>
-                    Unemployment Rate:
-                    </Card.Header>
-                    <Progress className='Progress' percent={(city.unemployment_rate * 100).toFixed(3)} color='blue' size='small' />
-                  </Grid.Column>
+                  <Grid container columns={2}>
+                    <Grid.Column >
+                      <Card.Header className='containerSize'>
+                        Unemployment Rate:
+                      </Card.Header>
+                      <Progress className='Progress' percent={(city.unemployment_rate * 100).toFixed(3)} color='blue' size='small' />
+                    </Grid.Column>
 
-                  <Grid.Column>
-                    <Card.Header>
-                    Poverty Rate:
-                    </Card.Header>
-                    <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small' />
-                  </Grid.Column>
+                    <Grid.Column >
+                      <Card.Header>
+                        Poverty Rate:
+                      </Card.Header>
+                      <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small' />
+                    </Grid.Column>
 
-                  <Grid.Column>
-                    <Card.Header>
-                      Population:
-                    </Card.Header>
-                    {city.total_pop}
-                  </Grid.Column>
+                    <Grid.Column>
+                      <Card.Header>
+                        Population:
+                      </Card.Header>
+                        {city.total_pop}
+                    </Grid.Column>
 
-                  <Grid.Column>
-                    <Card.Header>
-                      Median Monthly Housing Cost:
-                    </Card.Header>
-                    ${city.med_monthly_housing}
-                  </Grid.Column>
-
+                    <Grid.Column>
+                      <Card.Header>
+                        Median Monthly Housing Cost:
+                      </Card.Header>
+                        ${city.med_monthly_housing}
+                    </Grid.Column>
+                  </Grid>
+                  
                 </Card.Description>
               </Card.Content>
             </Card> 
+
           </div>
           {/*<div className="poverty">Poverty Rate:   <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small'/></div>*/}
         </div>
