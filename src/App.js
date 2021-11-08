@@ -1,11 +1,9 @@
-import React, {Component, useState} from 'react'
+import React from 'react'
 import './App.scss'
-// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Categories from './Components/Categories'
 import HowItWorks from './Components/HowItWorks'
 // import { BrowserRouter, Route } from 'react-router-dom';
 import { Route, Switch } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Header from './Components/header/Header';
 // import Banner from './Components/Banner'
 import Results from './Components/Results';

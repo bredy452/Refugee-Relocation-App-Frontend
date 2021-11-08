@@ -6,6 +6,7 @@ const CityDetail = () => {
   const [city, setCity] = useState({});
   const [isLoaded, setIsLoaded] = useState(false);
   const { id } = useParams();
+  let coordinates
 
   useEffect(() => {
     fetch(
@@ -18,7 +19,9 @@ const CityDetail = () => {
         },
       }
     ).then((res) => res.json())
-    .then((data) => setCity(data));
+    .then((data) =>
+      setCity(data) 
+    );
     setIsLoaded(true);
   }, [id]);
 
@@ -26,34 +29,28 @@ const CityDetail = () => {
     return <h2>Loading...</h2>;
   }
   
-  // let longLat = []
-  // let newArr = city.map_center.replace('[', '')
-  // let newArr2 = newArr.replace(']', '').replace(',', '').split(' ')
-  // console.log(newArr)
-  // let longitude = Number(newArr2[0])
-  // let latitude = Number(newArr2[1])
-  // longLat.push(longitude)
-  // longLat.push(latitude)
-  // console.log(longLat)
-
-  // city.newMid = longLat
-  // console.log(city)
-  let geojson = {
-    "type": "FeatureCollection",
-    "features": [
-      {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "type": "MultiPoint",
-          "coordinates":
-          city.coordinates
-        }
-      }]
-  }
+  // let geojson = {
+  //   [33.439491, -86.095576]
+  //   "type": "FeatureCollection",
+  //   "features": [
+  //     {
+  //       "type": "Feature",
+  //       "properties": {},
+  //       "geometry": {
+  //         "type": "MultiPoint",
+  //         "coordinates":
+  //         city.coordinates
+  //       }
+  //     }]
+  // }
 
   // console.log(geojson.features[0].geometry.coordinates)
-  console.log(city)
+  
+  if (isLoaded) {
+    coordinates = city.map_center
+  }
+  console.log(city.map_center)
+  console.log(coordinates)
 
   return (
     <>
@@ -73,18 +70,18 @@ const CityDetail = () => {
         </div>
       </div>
 
-      <MapContainer zoom={9} center={[33.439491, -86.095576]} scrollWheelZoom={true}>
+      {coordinates &&<MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[33.439491, -86.095576]}>
+        <Marker position={coordinates}>
           <Popup> 
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
         <GeoJSON /*this is where geojson needs to go*//>
-      </MapContainer>
+      </MapContainer>}
     </>
   );
 };
