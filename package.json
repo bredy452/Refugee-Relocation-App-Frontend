@@ -1,6 +1,10 @@
 {
   "name": "refugee-relocation-app-frontend",
   "version": "0.1.0",
+  "engines" : {
+    "node": "14.17.4",
+    "npm": "7.24.2"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",

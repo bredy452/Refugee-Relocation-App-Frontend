@@ -9,9 +9,16 @@ import Header from './Components/header/Header';
 import Results from './Components/Results';
 import CityDetail from './Components/CityDetail';
 
-let baseUrl = 'http://gapct2recommendationengine-env.eba-amwf2dwx.us-east-1.elasticbeanstalk.com/api/v1.0/recs'
+let apiUrl = 'http://gapct2recommendationengine-env.eba-amwf2dwx.us-east-1.elasticbeanstalk.com/api/v1.0/recs'
 
-console.log(baseUrl)
+let baseUrl = ''
+
+if (process.env.REACT_APP_NODE_ENV === 'development') {
+  baseUrl = 'http://localhost:3000'
+} else {
+  baseUrl = process.env.REACT_APP_NODE_ENV
+}
+
 export default function App() {
 
   return (
@@ -20,7 +27,7 @@ export default function App() {
       <Route exact path="/">
         <Header />
         <HowItWorks/>
-        <Categories baseUrl={baseUrl}/>
+        <Categories apiUrl={apiUrl}/>
       </Route>
       {/*<Route exact path="/results">
         <Results/>

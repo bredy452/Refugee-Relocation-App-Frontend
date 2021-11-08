@@ -635,9 +635,8 @@ export default class Categories extends Component {
 			housingToggle: false,
 			safetyAndResourcesToggle: false,
 			foodToggle: false,
-      data: []
+      		data: []
 		}
-		console.log(this.props.baseUrl)
 	}
 
 	toggleChangeEducation = (e) => {
@@ -805,7 +804,7 @@ export default class Categories extends Component {
 		// console.log(this.state.language)
 		// console.log()
 		e.preventDefault()
-		fetch(this.props.baseUrl , { 
+		fetch(this.props.apiUrl , { 
 			method: "POST",
 			headers: {
 					"Content-Type": "application/json",
