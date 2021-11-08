@@ -7,7 +7,7 @@ import ChoicesHousing from "./ChoicesHousing"
 import ChoicesSafetyAndResources from "./ChoicesSafetyAndResources"
 import ChoicesFood from "./ChoicesFood"
 
-import {Button, Popup, Form, Dropdown, Radio} from "semantic-ui-react"
+import {Button, Popup, Form, Dropdown, Radio, Card} from "semantic-ui-react"
 // import SliderView from "semantic-ui-react-slider"
 
 // import USWDS from "../node_modules/uswds/src/js/components"
@@ -1009,28 +1009,35 @@ export default class Categories extends Component {
   					</Popup>
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
   				</div>		
-  			</div>
-          {/* <Link to="/results"> */}
-  				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button>
-          {/* </Link> */}
-          <Link to="/results">Link</Link>
+  			</div><br></br>
+  				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button><br></br><br></br>
           <div className="city-container">
-            {this.state.data.map((data) => (
-              <div className="city-cards" key={data.id}>
-                <Link to={`/city/${data.id}`}>
-                <div className="city-card">
-                	<div className="city-name">
-                  		{data.place}
-                  	</div>
-                <div className="city-relevance">
-                 	Relevance:{data.relevance}
-                </div>
-               </div>
-            </Link>
-              </div>
-            ))}
+
+            {this.state.data.map((data) => {
+            	return (
+              		<div className="city-cards" key={data.id}>
+                		<Card.Group>
+                			<Card centered key={data.id}>
+                				<Card.Content>
+                					<Card.Header>
+                						{data.place}
+                					</Card.Header>
+                					<Card.Meta>
+                						{data.state}
+                					</Card.Meta>
+                					<Card.Description>
+                						{data.description}
+                					</Card.Description><br></br>
+                					<Link to={`/city/${data.id}`}><Button primary>See Details</Button></Link>
+                				</Card.Content>
+
+                			</Card>
+
+                		</Card.Group>
+              		</div>
+              	)
+            })}
           </div>
-			{/*<Button primary onClick={(e) => this.results(e)}>See Results</Button>*/}
 			</>
 
 			)
