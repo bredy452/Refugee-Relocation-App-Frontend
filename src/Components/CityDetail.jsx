@@ -55,11 +55,23 @@ const CityDetail = () => {
 
   return (
     <>
+      <h3 className='placeName'>{city.place}</h3>
+
+      {coordinates && <MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={coordinates}>
+          <Popup> 
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+        <GeoJSON /*this is where geojson needs to go*//>
+      </MapContainer>} <br></br>
+
       <div className="city-detail-container">
-        <div className="detail">
-          <div className="city-name">City:   {city.place}</div>
-          <div className="state-name">State:   {city.state}</div>
-          <div className="city-description">Description:<br></br>{city.description}</div>
+        
           {/*<div className="city-pop">Population: {city.total_pop}</div>
           <div className="med-month-housing">
           Median Monthly Housing Cost:   ${city.med_monthly_housing}
@@ -104,23 +116,24 @@ const CityDetail = () => {
               </Card.Content>
             </Card> 
 
+            <h3>Quick Facts</h3>
+
+            <Card fluid centered>
+              <Card.Content>
+                <Card.Description>
+                      {city.description}
+                </Card.Description>
+              </Card.Content>
+            </Card> 
+
           </div>
           {/*<div className="poverty">Poverty Rate:   <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small'/></div>*/}
         </div>
-      </div><br></br>
-
-      {coordinates &&<MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
-        <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={coordinates}>
-          <Popup> 
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-        <GeoJSON /*this is where geojson needs to go*//>
-      </MapContainer>}
+        <div className="detail">
+          <div className="city-name">City:   {city.place}</div>
+          <div className="state-name">State:   {city.state}</div>
+          <div className="city-description">Description:<br></br>{city.description}</div>
+      </div>
     </>
   );
 };
