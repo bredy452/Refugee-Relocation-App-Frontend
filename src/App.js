@@ -19,10 +19,6 @@ export default function App() {
 
   return (
     <>
-
-
-    <HowItWorks/>
-    <Categories baseUrl={baseUrl}/>
     <Switch>
       <Route exact path="/">
         <Header />

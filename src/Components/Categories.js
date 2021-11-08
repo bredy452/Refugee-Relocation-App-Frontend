@@ -886,7 +886,7 @@ export default class Categories extends Component {
 	render() {
 		const {rating} = this.state
 		return (
-			
+			<>
 			<div className="Options">
 				<div className="Education">
 					<Popup trigger={<Radio toggle label="Education" onChange={(e) => this.toggleChangeEducation(e)}/>} on={"click"} flowing >
@@ -1007,8 +1007,8 @@ export default class Categories extends Component {
     						<Button>Close</Button>
     					</Form>
   					</Popup>
-
-  					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/><br></br>
+  					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
+  				</div>		
   				</div>
           {/* <Link to="/results"> */}
   				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button>
@@ -1019,22 +1019,22 @@ export default class Categories extends Component {
               <div className="city-cards" key={data.id}>
                 <Link to={`/city/${data.id}`}>
                 <div className="city-card">
-                  <div className="city-name">{data.place}</div>
-                  <div className="city-relevance">Relevance:{data.relevance}</div>
+                	<div className="city-name">
+                  		{data.place}
+                  	</div>
+                <div className="city-relevance">
+                 	Relevance:{data.relevance}
                 </div>
-                </Link>
+               </div>
+            </Link>
               </div>
             ))}
           </div>
+			{/*<Button primary onClick={(e) => this.results(e)}>See Results</Button>*/}
+			</>
 
-  					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
-  				</div>		
-
-			
-			
-			
-
-			
-	
+			)
+	}
 
 
+}
