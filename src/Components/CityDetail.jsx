@@ -50,18 +50,23 @@ const CityDetail = () => {
   if (isLoaded) {
     coordinates = city.map_center
   }
-  console.log(city.map_center)
+  console.log(city)
   console.log(coordinates)
 
   return (
     <>
-      <Grid.Column>
+      
+      
+
+      <div className="city-detail-container">
+        <Grid.Column>
           <h3 className='placeName'>{city.place}</h3>
       </Grid.Column>
       <Grid.Column>
           <h4 className='placeName'>{city.state}</h4>
       </Grid.Column>
-      {coordinates && <MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
+
+        {coordinates && <MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -73,9 +78,6 @@ const CityDetail = () => {
         </Marker>
         <GeoJSON /*this is where geojson needs to go*//>
       </MapContainer>} <br></br>
-
-      <div className="city-detail-container">
-        
           {/*<div className="city-pop">Population: {city.total_pop}</div>
           <div className="med-month-housing">
           Median Monthly Housing Cost:   ${city.med_monthly_housing}
@@ -120,7 +122,7 @@ const CityDetail = () => {
               </Card.Content>
             </Card> 
 
-            <h3>Quick Facts</h3>
+            <h3>Quick Fact</h3>
 
             <Card fluid centered>
               <Card.Content>
