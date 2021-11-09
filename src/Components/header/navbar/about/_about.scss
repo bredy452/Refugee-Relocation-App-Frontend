@@ -1,0 +1,10 @@
+@import '../../../../App.scss';
+
+.about_container {
+  margin-right: 2rem;
+  cursor: pointer;
+
+  & span {
+    margin-left: 1.5rem;
+  }
+}

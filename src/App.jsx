@@ -1,7 +1,7 @@
 import React from 'react'
 import './App.scss'
-import Categories from './Components/Categories'
-import HowItWorks from './Components/HowItWorks'
+import Categories from './Components/results-form/categories/Categories'
+import HowItWorks from './Components/how-it-works/HowItWorks'
 // import { BrowserRouter, Route } from 'react-router-dom';
 import { Route, Switch } from "react-router-dom";
 import Header from './Components/header/Header';
@@ -29,9 +29,9 @@ export default function App() {
         <HowItWorks/>
         <Categories apiUrl={apiUrl}/>
       </Route>
-      {/*<Route exact path="/results">
+      {/* <Route exact path="/results">
         <Results/>
-      </Route>*/}
+      </Route> */}
       <Route exact path="/city/:id">
         <CityDetail/>
       </Route>
