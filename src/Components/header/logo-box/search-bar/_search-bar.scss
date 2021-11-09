@@ -15,9 +15,13 @@
 
   &_icon-container {
     background-color: $blue-dark;
-    padding: .5rem;
+    padding: 1rem;
     border-radius: .3rem;
     margin-left: -.1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &_icon {
