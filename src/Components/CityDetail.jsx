@@ -90,28 +90,31 @@ const CityDetail = () => {
 
                   <Grid container columns={2}>
                     <Grid.Column >
-                      <Card.Header className='containerSize'>
-                        Unemployment Rate:
+                      <Card.Header className='containerSize headerSettings'>
+                        Unemployment Rate: 
                       </Card.Header>
-                      <Progress className='Progress' percent={(city.unemployment_rate * 100).toFixed(3)} color='blue' size='small' />
+                      {(city.unemployment_rate * 100).toFixed(2)}%
+
+                      <Progress className='Progress' percent={(city.unemployment_rate * 100).toFixed(3)} color='blue' size='small'/>
                     </Grid.Column>
 
                     <Grid.Column >
-                      <Card.Header>
-                        Poverty Rate:
+                      <Card.Header className='headerSettings'>
+                        Poverty Rate: <br></br>
                       </Card.Header>
+                      {(city.poverty_rate * 100).toFixed(2)}%
                       <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small' />
                     </Grid.Column>
 
                     <Grid.Column>
-                      <Card.Header>
+                      <Card.Header className='headerSettings'>
                         Population:
                       </Card.Header>
                         {city.total_pop}
                     </Grid.Column>
 
                     <Grid.Column>
-                      <Card.Header>
+                      <Card.Header className='headerSettings'>
                         Median Monthly Housing Cost:
                       </Card.Header>
                         ${city.med_monthly_housing}
