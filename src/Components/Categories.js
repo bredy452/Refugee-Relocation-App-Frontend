@@ -1010,10 +1010,10 @@ export default class Categories extends Component {
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
   				</div>		
   			</div>
-          {/* <Link to="/results"> */}
+          
   				<Button as={Link} to='/results' primary onClick={(e) => this.results(e)}>See Results</Button>
-          {/* </Link> */}
-          <Link to="/results">Link</Link>
+          
+          
           <div className="city-container">
             {this.state.data.map((data) => (
               <div className="city-cards" key={data.id}>
