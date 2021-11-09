@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON } from 'react-leaflet'
+import {Progress, Card, Grid} from 'semantic-ui-react'
 
 const CityDetail = () => {
   const [city, setCity] = useState({});
@@ -29,48 +30,42 @@ const CityDetail = () => {
     return <h2>Loading...</h2>;
   }
   
-  // let geojson = {
-  //   [33.439491, -86.095576]
-  //   "type": "FeatureCollection",
-  //   "features": [
-  //     {
-  //       "type": "Feature",
-  //       "properties": {},
-  //       "geometry": {
-  //         "type": "MultiPoint",
-  //         "coordinates":
-  //         city.coordinates
-  //       }
-  //     }]
-  // }
+  let geojson = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "MultiPoint",
+          "coordinates":
+          city.coordinates
+        }
+      }]
+  }
 
   // console.log(geojson.features[0].geometry.coordinates)
   
   if (isLoaded) {
     coordinates = city.map_center
   }
-  console.log(city.map_center)
+  console.log(city)
   console.log(coordinates)
 
   return (
     <>
-      <div className="city-detail-container">
-        <div className="detail">
-          <div className="city-name">City: {city.place}</div>
-          <div className="state-name">State: {city.state}</div>
-          <div className="city-description">Description: {city.description}</div>
-          <div className="city-pop">Population: {city.total_pop}</div>
-          <div className="unemployment">
-          Unemployment Rate: {city.unemployment_rate}
-          </div>
-          <div className="poverty">Poverty Rate: {city.poverty_rate}</div>
-          <div className="med-month-housing">
-          Median Monthly Housing Cost: ${city.med_monthly_housing}
-          </div>
-        </div>
-      </div>
+      
+      
 
-      {coordinates &&<MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
+      <div className="city-detail-container">
+        <Grid.Column>
+          <h3 className='placeName'>{city.place}</h3>
+        </Grid.Column>
+        <Grid.Column>
+          <h4 className='placeName'>{city.state}</h4>
+        </Grid.Column>
+
+        {coordinates && <MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -80,8 +75,64 @@ const CityDetail = () => {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
-        <GeoJSON /*this is where geojson needs to go*//>
-      </MapContainer>}
+        {coordinates && <GeoJSON geojson/>}
+      </MapContainer>} <br></br>
+
+          <div className="unemployment">
+
+            <Card fluid centered>
+              <Card.Content>
+                <Card.Description>
+
+                  <Grid container columns={2}>
+                    <Grid.Column >
+                      <Card.Header className='containerSize headerSettings'>
+                        Unemployment Rate: 
+                      </Card.Header>
+                      {(city.unemployment_rate * 100).toFixed(2)}%
+
+                      <Progress className='Progress' percent={(city.unemployment_rate * 100).toFixed(3)} color='blue' size='small'/>
+                    </Grid.Column>
+
+                    <Grid.Column >
+                      <Card.Header className='headerSettings'>
+                        Poverty Rate: <br></br>
+                      </Card.Header>
+                      {(city.poverty_rate * 100).toFixed(2)}%
+                      <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small' />
+                    </Grid.Column>
+
+                    <Grid.Column>
+                      <Card.Header className='headerSettings'>
+                        Population:
+                      </Card.Header>
+                        {city.total_pop}
+                    </Grid.Column>
+
+                    <Grid.Column>
+                      <Card.Header className='headerSettings'>
+                        Median Monthly Housing Cost:
+                      </Card.Header>
+                        ${city.med_monthly_housing}
+                    </Grid.Column>
+                  </Grid>
+
+                </Card.Description>
+              </Card.Content>
+            </Card> 
+
+            <h3>Quick Fact</h3>
+
+            <Card fluid centered>
+              <Card.Content>
+                <Card.Description>
+                      {city.description}
+                </Card.Description>
+              </Card.Content>
+            </Card> 
+
+          </div>
+        </div>
     </>
   );
 };

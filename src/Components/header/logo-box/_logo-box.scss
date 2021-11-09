@@ -1,0 +1,23 @@
+@import '../../../App.scss';
+
+.logo-box_container {
+  padding: 5rem 3rem 1.5rem 3rem;
+  border-bottom: 2px solid $grey-light;
+
+  // FLEXBOX - LEVEL 1
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & h1 {
+    font-size: 3.2rem;
+    color: $off-black;
+  }
+}
+
+.search-and-terms_container {
+
+  // FLEXBOX - LEVEL 2
+  display: flex;
+  flex-direction: column;
+}

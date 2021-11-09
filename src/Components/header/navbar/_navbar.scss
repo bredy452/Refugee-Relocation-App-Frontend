@@ -1,0 +1,8 @@
+@import '../../../App.scss';
+
+.navbar_container {
+  display: flex;
+  padding: 1.5rem 3rem;
+  font-size: 1.4rem;
+  color: $grey-darkest;
+}
