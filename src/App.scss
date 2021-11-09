@@ -1,15 +1,22 @@
-.leaflet-container {
-  width: 50vw;
-  height: 40vh;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// ==========================================================================
+//==========================================================================
 // VARIABLES 
 // ==========================================================================
 
+// COLORS 
+// ======================================================================
 $white: #fff;
+$black: #000;
+$off-black: #171717;
+$red: #D83933;
+$blue-dark: #005EA2;
+$blue-light: #D9E8F6;
+$grey-darkest: #71767A;
+$grey-dark: #DCDEE0;
+$grey-light: #F0F0F0;
+
+// FONTS 
+// ======================================================================
+$nest-font: 'Public Sans', sans-serif;
 
 // ==========================================================================
 // BASE STYLES 
@@ -28,8 +35,11 @@ html {
 
 body {
   box-sizing: border-box;
+  font-family: $nest-font;
   // Change this later 
-  font-size: 2rem;
+  // font-size: 2rem;
+  // Change this later
+  font-weight: lighter;
 }
 
 .Options {

@@ -1,11 +1,18 @@
 import React, {Component} from "react"
 import { Link } from "react-router-dom"
-import ChoicesEducation from "./ChoicesEducation"
-import ChoicesCommunity from "./ChoicesCommunity"
-import ChoicesTransportation from "./ChoicesTransportation"
-import ChoicesHousing from "./ChoicesHousing"
-import ChoicesSafetyAndResources from "./ChoicesSafetyAndResources"
-import ChoicesFood from "./ChoicesFood"
+import ChoicesEducation from "../choices-education/ChoicesEducation"
+import ChoicesCommunity from "../choices-community/ChoicesCommunity"
+import ChoicesTransportation from "../choices-transportation/ChoicesTransportation"
+import ChoicesHousing from "../choices-housing/ChoicesHousing"
+import ChoicesSafetyAndResources from "../choices-safety-and-resources/ChoicesSafetyAndResources"
+import ChoicesFood from "../choices-food/ChoicesFood"
+
+import "semantic-ui-css/components/button.min.css";
+import "semantic-ui-css/components/popup.min.css";
+import "semantic-ui-css/components/form.min.css";
+import "semantic-ui-css/components/dropdown.min.css";
+import "semantic-ui-css/components/card.min.css";
+import "semantic-ui-css/components/checkbox.min.css";
 
 import {Button, Popup, Form, Dropdown, Radio, Card} from "semantic-ui-react"
 // import SliderView from "semantic-ui-react-slider"
