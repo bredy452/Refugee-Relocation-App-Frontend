@@ -1,0 +1,12 @@
+@import '../../../App.scss';
+
+.header-image_container {
+  width: 100%;
+
+  & img {
+    width: 100%;
+    height: auto;
+    object-position: center;
+    object-fit: cover;
+  }
+}

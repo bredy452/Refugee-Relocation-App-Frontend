@@ -1,0 +1,55 @@
+@import '../../App.scss';
+
+.intro {
+
+  &_container {
+    padding: 2rem 3rem 5rem 3rem;
+  }
+
+  &_header {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: $black;
+  }
+
+  &_paragraph {
+    color: $grey-darkest;
+    font-size: 2.2rem;
+    font-weight: lighter;
+    width: 85%;
+  }
+
+  &_list {
+    margin-top: 6rem;
+    border-left: 1rem solid $blue-light;
+
+    & span {
+      margin-right: 2rem;
+      border: 3px solid $black;
+      border-radius: 50%;
+      padding: .5rem;
+      width: 3rem;
+      height: 3rem;
+      background-color: $white;
+
+      position: absolute;
+      left: -2rem;
+
+      // FLEXBOX 
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &_step {
+    margin: 4rem 0;
+    position: relative;
+
+    & p {
+      margin-left: 2.5rem;
+    }
+  }
+
+  
+}
