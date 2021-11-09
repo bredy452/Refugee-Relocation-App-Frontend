@@ -7,6 +7,13 @@ import ChoicesHousing from "../choices-housing/ChoicesHousing"
 import ChoicesSafetyAndResources from "../choices-safety-and-resources/ChoicesSafetyAndResources"
 import ChoicesFood from "../choices-food/ChoicesFood"
 
+import "semantic-ui-css/components/button.min.css";
+import "semantic-ui-css/components/popup.min.css";
+import "semantic-ui-css/components/form.min.css";
+import "semantic-ui-css/components/dropdown.min.css";
+import "semantic-ui-css/components/card.min.css";
+import "semantic-ui-css/components/checkbox.min.css";
+
 import {Button, Popup, Form, Dropdown, Radio, Card} from "semantic-ui-react"
 // import SliderView from "semantic-ui-react-slider"
 
