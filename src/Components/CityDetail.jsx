@@ -30,20 +30,19 @@ const CityDetail = () => {
     return <h2>Loading...</h2>;
   }
   
-  // let geojson = {
-  //   [33.439491, -86.095576]
-  //   "type": "FeatureCollection",
-  //   "features": [
-  //     {
-  //       "type": "Feature",
-  //       "properties": {},
-  //       "geometry": {
-  //         "type": "MultiPoint",
-  //         "coordinates":
-  //         city.coordinates
-  //       }
-  //     }]
-  // }
+  let geojson = {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "type": "MultiPoint",
+          "coordinates":
+          city.coordinates
+        }
+      }]
+  }
 
   // console.log(geojson.features[0].geometry.coordinates)
   
@@ -61,10 +60,10 @@ const CityDetail = () => {
       <div className="city-detail-container">
         <Grid.Column>
           <h3 className='placeName'>{city.place}</h3>
-      </Grid.Column>
-      <Grid.Column>
+        </Grid.Column>
+        <Grid.Column>
           <h4 className='placeName'>{city.state}</h4>
-      </Grid.Column>
+        </Grid.Column>
 
         {coordinates && <MapContainer zoom={9} center={coordinates} scrollWheelZoom={true}>
         <TileLayer
@@ -76,12 +75,9 @@ const CityDetail = () => {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
-        <GeoJSON /*this is where geojson needs to go*//>
+        {coordinates && <GeoJSON geojson/>}
       </MapContainer>} <br></br>
-          {/*<div className="city-pop">Population: {city.total_pop}</div>
-          <div className="med-month-housing">
-          Median Monthly Housing Cost:   ${city.med_monthly_housing}
-          </div>*/}
+
           <div className="unemployment">
 
             <Card fluid centered>
@@ -136,7 +132,6 @@ const CityDetail = () => {
             </Card> 
 
           </div>
-          {/*<div className="poverty">Poverty Rate:   <Progress className='Progress' percent={(city.poverty_rate * 100).toFixed(3)} color='blue' size='small'/></div>*/}
         </div>
     </>
   );

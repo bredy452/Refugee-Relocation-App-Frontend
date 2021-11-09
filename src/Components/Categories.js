@@ -635,7 +635,9 @@ export default class Categories extends Component {
 			housingToggle: false,
 			safetyAndResourcesToggle: false,
 			foodToggle: false,
-      		data: []
+      		data: [],
+      		educationClose: false
+
 		}
 	}
 
@@ -798,6 +800,12 @@ export default class Categories extends Component {
 		console.log(this.state)
 	}
 
+	// educationClose = (e) => {
+	// 	this.setState({
+	// 		educationClose: !this.state.educationClose
+	// 	})
+	// }
+
 	results = (e) => {
 		// console.log(this.state.education)
 		// console.log(this.state.religion)
@@ -888,7 +896,7 @@ export default class Categories extends Component {
 			<>
 			<div className="Options">
 				<div className="Education">
-					<Popup trigger={<Radio toggle label="Education" onChange={(e) => this.toggleChangeEducation(e)}/>} on={"click"} flowing >
+					<Popup trigger={<Radio toggle label="Education" onChange={(e) => this.toggleChangeEducation(e)}/>} on={'click'} flowing>
     					<Form>
     						<Form.Checkbox value="education" id="primary_school" label="Primary School" onClick={(e) => this.handleClickEducation(e)}/>
 
