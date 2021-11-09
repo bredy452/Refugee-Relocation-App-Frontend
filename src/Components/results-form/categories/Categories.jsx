@@ -13,6 +13,8 @@ import "semantic-ui-css/components/form.min.css";
 import "semantic-ui-css/components/dropdown.min.css";
 import "semantic-ui-css/components/card.min.css";
 import "semantic-ui-css/components/checkbox.min.css";
+import "semantic-ui-css/components/grid.min.css"
+import "semantic-ui-css/components/progress.min.css"
 
 import {Button, Popup, Form, Dropdown, Radio, Card} from "semantic-ui-react"
 // import SliderView from "semantic-ui-react-slider"
