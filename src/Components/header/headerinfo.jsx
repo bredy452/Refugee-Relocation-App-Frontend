@@ -1,5 +1,5 @@
 import React from 'react'
-import './header.scss'
+import './_header.scss'
 import HeaderImage from './header-image/HeaderImage'
 import LogoBox from './logo-box/LogoBox'
 import Navbar from './navbar/Navbar'
