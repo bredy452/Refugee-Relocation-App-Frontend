@@ -1,7 +1,9 @@
 import React, {Component} from "react"
 import { Link } from "react-router-dom"
 import ChoicesEducation from "../Choices-Education/ChoicesEducation"
-import ChoicesCommunity from "../Choices-Community/ChoicesCommunity"
+import ChoicesCountryOfOrigin from "../Choices-Community/ChoicesCountryOfOrigin"
+import ChoicesLanguage from "../Choices-Community/ChoicesLanguage"
+import ChoicesReligion from "../Choices-Community/ChoicesReligion"
 import ChoicesTransportation from "../Choices-Transportation/ChoicesTransportation"
 import ChoicesHousing from "../Choices-Housing/ChoicesHousing"
 import ChoicesSafetyAndResources from "../Choices-Safety-And-Resources/ChoicesSafetyAndResources"
@@ -961,7 +963,11 @@ export default class Categories extends Component {
     						<Button>Close</Button>
     					</Form>
   					</Popup>
-  					<ChoicesCommunity selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
+  					<ChoicesCountryOfOrigin selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
+  					/>
+  					<ChoicesLanguage selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
+  					/>
+  					<ChoicesReligion selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
   					/>
   				</div>
 

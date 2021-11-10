@@ -11,7 +11,7 @@ const CityDetail = () => {
 
   useEffect(() => {
     fetch(
-      `http://gapct2recommendationengine-env.eba-amwf2dwx.us-east-1.elasticbeanstalk.com/api/v1.0/city/${id}`,
+      `https://gapct2recommendationengine-env.eba-amwf2dwx.us-east-1.elasticbeanstalk.com/api/v1.0/city/${id}`,
       {
         method: "GET",
         headers: {
