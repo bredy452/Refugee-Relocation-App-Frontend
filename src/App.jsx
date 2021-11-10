@@ -9,7 +9,7 @@ import Header from './Components/Header/HeaderInfo';
 import Results from './Components/Results';
 import CityDetail from './Components/CityDetail';
 
-let apiUrl = 'https://gapct2recommendationengine-env.eba-amwf2dwx.us-east-1.elasticbeanstalk.com/api/v1.0/recs'
+let apiUrl = 'https://nest-recommendation-engine.herokuapp.com/api/v1.0/recs'
 
 let baseUrl = ''
 
