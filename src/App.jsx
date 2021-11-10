@@ -1,10 +1,10 @@
 import React from 'react'
 import './App.scss'
-import Categories from './Components/results-form/categories/Categories'
-import HowItWorks from './Components/how-it-works/HowItWorks'
+import Categories from './Components/Results-Form/Categories/Categories'
+import HowItWorks from './Components/How-It-Works/HowItWorks'
 // import { BrowserRouter, Route } from 'react-router-dom';
 import { Route, Switch } from "react-router-dom";
-import Header from './Components/header/headerInfo';
+import Header from './Components/Header/HeaderInfo';
 // import Banner from './Components/Banner'
 import Results from './Components/Results';
 import CityDetail from './Components/CityDetail';
