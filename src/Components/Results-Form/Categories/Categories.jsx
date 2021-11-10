@@ -1,14 +1,12 @@
 import React, {Component} from "react"
 import { Link } from "react-router-dom"
 import ChoicesEducation from "../Choices-Education/ChoicesEducation"
-import ChoicesCountryOfOrigin from "../Choices-Community/ChoicesCountryOfOrigin"
-import ChoicesLanguage from "../Choices-Community/ChoicesLanguage"
-import ChoicesReligion from "../Choices-Community/ChoicesReligion"
+import ChoicesCommunity from "../Choices-Community/ChoicesCommunity"
 import ChoicesTransportation from "../Choices-Transportation/ChoicesTransportation"
 import ChoicesHousing from "../Choices-Housing/ChoicesHousing"
 import ChoicesSafetyAndResources from "../Choices-Safety-And-Resources/ChoicesSafetyAndResources"
 import ChoicesFood from "../Choices-Food/ChoicesFood"
-
+import 'semantic-ui-css/semantic.min.css'
 import "semantic-ui-css/components/button.min.css";
 import "semantic-ui-css/components/popup.min.css";
 import "semantic-ui-css/components/form.min.css";
@@ -352,11 +350,11 @@ let languages = [
 const religions = [
 	{
 		text: "Buddhism",
-		id: "buddhism"
+		id: "buddhism",
 	},
 	{
 		text: "Christianity",
-		id: "christianity"
+		id: "christianity",
 	},
 	{
 		text: "Hinduism",
@@ -376,7 +374,7 @@ const religions = [
 	}
 ]
 
-const countryOfOrigin = [
+let countryOfOrigin = [
   { text: "Afghanistan", id: "afghanistan" },
   { text: "Aland Islands", id: "aland_islands" },
   { text: "Albania", id: "albania" },
@@ -630,7 +628,7 @@ export default class Categories extends Component {
 		this.state = {
 			education: [],
 			// community: [],
-			religion: undefined,
+			religion: "",
 			language: "",
 			countryOfOrigin: "",
 			transportation: [],
@@ -688,7 +686,7 @@ export default class Categories extends Component {
 
 		if (this.state.communityToggle !== false) {
 			this.setState({
-				religion: undefined,
+				religion: "",
 				language: "",
 				countryOfOrigin: ""
 			})
@@ -753,7 +751,7 @@ export default class Categories extends Component {
 		// const copyState = [...this.state.transportation]
 		// copyState.push(e.target.id)
 		// console.log(e.target.innerHTML)
-		// console.log(e.target.closest("div").id)
+		console.log(e.target.closest("div").id)
 		console.log(this.state.religion)
 	}
 
@@ -937,8 +935,9 @@ export default class Categories extends Component {
     								selection
     								fluid
     								placeholder={this.state.religion}
-    								clearable options={religions}
-    								onChange={(e) => this.handleClickReligion(e)}/>
+    								options={religions}
+    								onChange={(e) => this.handleClickReligion(e)}
+    								/>
     						</Form.Field>
     						<Form.Field>
     							<label>Language</label>	
@@ -963,11 +962,7 @@ export default class Categories extends Component {
     						<Button>Close</Button>
     					</Form>
   					</Popup>
-  					<ChoicesCountryOfOrigin selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
-  					/>
-  					<ChoicesLanguage selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
-  					/>
-  					<ChoicesReligion selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
+  					<ChoicesCommunity selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
   					/>
   				</div>
 
