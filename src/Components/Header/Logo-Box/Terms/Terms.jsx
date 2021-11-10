@@ -1,5 +1,5 @@
 import React from 'react'
-import './_terms.scss'
+import './_Terms.scss'
 
 const Terms = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
-import SearchBar from './search-bar/SearchBar'
-import Terms from './terms/Terms'
-import './_logo-box.scss'
+import SearchBar from './Search-Bar/SearchBar'
+import Terms from './Terms/Terms'
+import './_Logo-Box.scss'
 
 const LogoBox = () => {
   return (

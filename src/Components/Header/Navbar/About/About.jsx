@@ -1,5 +1,5 @@
 import React from 'react'
-import './_about.scss'
+import './_About.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 

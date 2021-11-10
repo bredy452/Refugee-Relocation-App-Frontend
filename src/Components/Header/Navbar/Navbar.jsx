@@ -1,7 +1,7 @@
 import React from 'react'
-import About from './about/About'
-import Section from './section/Section'
-import './_navbar.scss'
+import About from './About/About'
+import Section from './Section/Section'
+import './_Navbar.scss'
 
 const Navbar = () => {
   return (

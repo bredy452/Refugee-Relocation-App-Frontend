@@ -1,10 +1,10 @@
 import React, {Component} from "react"
 import { Link } from "react-router-dom"
-import ChoicesEducation from "../choices-education/ChoicesEducation"
-import ChoicesCommunity from "../choices-community/ChoicesCommunity"
-import ChoicesTransportation from "../choices-transportation/ChoicesTransportation"
-import ChoicesHousing from "../choices-housing/ChoicesHousing"
-import ChoicesSafetyAndResources from "../choices-safety-and-resources/ChoicesSafetyAndResources"
+import ChoicesEducation from "../Choices-Education/ChoicesEducation"
+import ChoicesCommunity from "../Choices-Community/ChoicesCommunity"
+import ChoicesTransportation from "../Choices-Transportation/ChoicesTransportation"
+import ChoicesHousing from "../Choices-Housing/ChoicesHousing"
+import ChoicesSafetyAndResources from "../Choices-Safety-And-Resources/ChoicesSafetyAndResources"
 import ChoicesFood from "../choices-food/ChoicesFood"
 
 import "semantic-ui-css/components/button.min.css";

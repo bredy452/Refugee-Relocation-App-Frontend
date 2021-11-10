@@ -1,8 +1,8 @@
 import React from 'react'
-import './_header.scss'
-import HeaderImage from './header-image/HeaderImage'
-import LogoBox from './logo-box/LogoBox'
-import Navbar from './navbar/Navbar'
+import './_Header.scss'
+import HeaderImage from './Header-Image/HeaderImage'
+import LogoBox from './Logo-Box/LogoBox'
+import Navbar from './Navbar/Navbar'
 
 const Header = () => {
   return (
