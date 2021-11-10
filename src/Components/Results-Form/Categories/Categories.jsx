@@ -919,7 +919,7 @@ export default class Categories extends Component {
 
     						<Form.Checkbox value="education" id="night_classes" label="Night Classes" onClick={(e) => this.handleClickEducation(e)}/>
 
-    						<Button>Close</Button>
+    						{/*<Button>Close</Button>*/}
     					</Form>
   					</Popup>
   					<ChoicesEducation selectedChoices={this.state} toggleEducation={this.toggleChangeEducation} refresh={this.componentDidUpdate}/>
@@ -959,7 +959,7 @@ export default class Categories extends Component {
     								options={countryOfOrigin}
     								onChange={(e) => this.handleClickCountryOfOrigin(e)}/>
     						</Form.Field>
-    						<Button>Close</Button>
+    						{/*<Button>Close</Button>*/}
     					</Form>
   					</Popup>
   					<ChoicesCommunity selectedChoices={this.state} toggleCommunity={this.toggleChangeCommunity} refresh={this.componentDidUpdate}
@@ -972,7 +972,7 @@ export default class Categories extends Component {
     						<Form.Checkbox value="transportation" id="public_transportation" label="Public Transportation" onClick={(e) => this.handleClickTransportation(e)}/>
     						<Form.Checkbox value="transportation" id="walkability" label="Walkability" onClick={(e) => this.handleClickTransportation(e)}/>
     						<Form.Checkbox value="transportation" id="carpooling" label="Carpooling Programs" onClick={(e) => this.handleClickTransportation(e)}/>
-    						<Button>Close</Button>
+    						{/*<Button>Close</Button>*/}
     					</Form>
   					</Popup>
   					<ChoicesTransportation selectedChoices={this.state} toggleTransportation={this.toggleChangeTransportation} refresh={this.componentDidUpdate}/>
@@ -995,7 +995,7 @@ export default class Categories extends Component {
         					<br />
         					<div>${rating}</div>
 
-    						<Button>Close</Button>
+    						{/*<Button>Close</Button>*/}
     					</Form>
   					</Popup>
   					<ChoicesHousing selectedChoices={this.state} toggleHousing={this.toggleChangeHousing} refresh={this.componentDidUpdate}/>
@@ -1008,7 +1008,7 @@ export default class Categories extends Component {
     						<Form.Checkbox value="safetyAndResources" id="hospitals" label="Hospitals" onClick={(e) => this.handleClickSafety(e)}/>
     						<Form.Checkbox value="safetyAndResources" id="police" label="Police" onClick={(e) => this.handleClickSafety(e)}/>
     						<Form.Checkbox value="safetyAndResources" id="shelters" label="Shelters" onClick={(e) => this.handleClickSafety(e)}/>
-    						<Button>Close</Button>
+    						{/*<Button>Close</Button>*/}
     					</Form>
   					</Popup>
   					<ChoicesSafetyAndResources selectedChoices={this.state} toggleSafety={this.toggleChangeSafety} refresh={this.componentDidUpdate}/>
@@ -1021,7 +1021,7 @@ export default class Categories extends Component {
     						<Form.Checkbox value="food" id="convience_stores" label="Convience Stores" onClick={(e) => this.handleClickFood(e)}/>
     						<Form.Checkbox value="food" id="snap_ebt" label="Snap EBT" onClick={(e) => this.handleClickFood(e)}/>
     						<Form.Checkbox value="food" id="ethnic_markets" label="Ethnic Markets" onClick={(e) => this.handleClickFood(e)}/>
-    						<Button>Close</Button>
+    						{/*<Button>Close</Button>*/}
     					</Form>
   					</Popup>
   					<ChoicesFood selectedChoices={this.state} toggleFood={this.toggleChangeFood} refresh={this.componentDidUpdate}/>
