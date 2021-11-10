@@ -5,7 +5,7 @@ import ChoicesCommunity from "../Choices-Community/ChoicesCommunity"
 import ChoicesTransportation from "../Choices-Transportation/ChoicesTransportation"
 import ChoicesHousing from "../Choices-Housing/ChoicesHousing"
 import ChoicesSafetyAndResources from "../Choices-Safety-And-Resources/ChoicesSafetyAndResources"
-import ChoicesFood from "../choices-food/ChoicesFood"
+import ChoicesFood from "../Choices-Food/ChoicesFood"
 
 import "semantic-ui-css/components/button.min.css";
 import "semantic-ui-css/components/popup.min.css";
